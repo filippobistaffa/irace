@@ -79,13 +79,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="https://mlopez-ibanez.github.io/irace/irace-pakage.pdf">User Guide</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -178,11 +175,11 @@ iteration are used for the race. If TRUE, the elite configurtions of each iterat
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \dontrun{</span>
   <span class='co'># Execute the postselection automatically after irace</span>
-  <span class='no'>parameters</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='readParameters.html'>readParameters</a></span>(<span class='st'>"parameters.txt"</span>)</div><div class='output co'>#&gt; <span class='error'>Error: == irace == readParameter: parameter file '/tmp/RtmpwUSSe2/file1d4d1e58dcd7/reference/parameters.txt' does not exist</span></div><div class='input'>  <span class='no'>scenario</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='readScenario.html'>readScenario</a></span>(<span class='kw'>filename</span><span class='kw'>=</span><span class='st'>"scenario.txt"</span>,
+  <span class='no'>parameters</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='readParameters.html'>readParameters</a></span>(<span class='st'>"parameters.txt"</span>)</div><div class='output co'>#&gt; <span class='error'>Error: == irace == readParameter: parameter file '/tmp/RtmpbTPVss/file5da5485e075d/reference/parameters.txt' does not exist</span></div><div class='input'>  <span class='no'>scenario</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='readScenario.html'>readScenario</a></span>(<span class='kw'>filename</span><span class='kw'>=</span><span class='st'>"scenario.txt"</span>,
                            <span class='kw'>scenario</span><span class='kw'>=</span><span class='fu'><a href='defaultScenario.html'>defaultScenario</a></span>())</div><div class='output co'>#&gt; <span class='error'>Error: == irace == The scenario file 'scenario.txt' does not exist.</span></div><div class='input'>  <span class='co'># Use 10% of the total budget</span>
   <span class='no'>scenario</span>$<span class='no'>postselection</span> <span class='kw'>&lt;-</span> <span class='fl'>0.1</span>
-  <span class='fu'><a href='irace.html'>irace</a></span>(<span class='kw'>scenario</span><span class='kw'>=</span><span class='no'>scenario</span>, <span class='kw'>parameters</span><span class='kw'>=</span><span class='no'>parameters</span>)</div><div class='output co'>#&gt; <span class='error'>Error: == irace == target runner 'targetRunner' (--target-runner) '/tmp/RtmpwUSSe2/file1d4d1e58dcd7/reference/target-runner' does not exist</span></div><div class='input'>  <span class='co'># Execute the postselection after the execution of \pkg{irace}.</span>
-  <span class='fu'>psRace</span>(<span class='kw'>iraceLogFile</span><span class='kw'>=</span><span class='st'>"irace.Rdata"</span>, <span class='kw'>max.experiments</span><span class='kw'>=</span><span class='fl'>120</span>)</div><div class='output co'>#&gt; # 2020-04-28 14:34:35 UTC: Stating post-selection:
+  <span class='fu'><a href='irace.html'>irace</a></span>(<span class='kw'>scenario</span><span class='kw'>=</span><span class='no'>scenario</span>, <span class='kw'>parameters</span><span class='kw'>=</span><span class='no'>parameters</span>)</div><div class='output co'>#&gt; <span class='error'>Error: == irace == target runner 'targetRunner' (--target-runner) '/tmp/RtmpbTPVss/file5da5485e075d/reference/target-runner' does not exist</span></div><div class='input'>  <span class='co'># Execute the postselection after the execution of \pkg{irace}.</span>
+  <span class='fu'>psRace</span>(<span class='kw'>iraceLogFile</span><span class='kw'>=</span><span class='st'>"irace.Rdata"</span>, <span class='kw'>max.experiments</span><span class='kw'>=</span><span class='fl'>120</span>)</div><div class='output co'>#&gt; # 2020-04-28 20:15:27 UTC: Stating post-selection:
 #&gt; # Seed:1234567
 #&gt; # Log file: irace.Rdata </div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open compressed file 'irace.Rdata', probable reason 'No such file or directory'</span></div><div class='output co'>#&gt; <span class='error'>Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection</span></div><div class='input'># }
 
