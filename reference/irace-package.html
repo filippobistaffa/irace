@@ -230,14 +230,14 @@
 
  <span class='co'>## We check that the scenario is valid. This will also try to execute</span>
  <span class='co'>## target.runner.</span>
- <span class='fu'><a href='checkIraceScenario.html'>checkIraceScenario</a></span>(<span class='no'>scenario</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>parameters</span>)</div><div class='output co'>#&gt; # 2020-04-30 12:22:28 UTC: Checking scenario
+ <span class='fu'><a href='checkIraceScenario.html'>checkIraceScenario</a></span>(<span class='no'>scenario</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>parameters</span>)</div><div class='output co'>#&gt; # 2020-05-02 15:31:15 UTC: Checking scenario
 #&gt; ## irace scenario:
 #&gt; scenarioFile = "./scenario.txt"
-#&gt; parameterFile = "/tmp/RtmpCPXyUH/file5fee604c475f/reference/parameters.txt"
-#&gt; execDir = "/tmp/RtmpCPXyUH/file5fee604c475f/reference"
+#&gt; parameterFile = "/tmp/RtmpZMD3Q5/file5d4219734aee/reference/parameters.txt"
+#&gt; execDir = "/tmp/RtmpZMD3Q5/file5d4219734aee/reference"
 #&gt; logFile = NULL
 #&gt; recoveryFile = NULL
-#&gt; instances = c(0.899226290841166, 0.919123359090961, 0.88486593743672, 0.907911689737023, 0.921746390182789, 0.901427648427331, 0.903710348534097, 0.908802799339799, 0.90709653502662, 0.867772190682429)
+#&gt; instances = c(0.949576931095124, 0.898052975589976, 0.910406494863153, 0.915158114994512, 0.906132162417802, 0.88495724971745, 0.878288225671879, 0.887177970470628, 0.905393862916816, 0.926318907407635)
 #&gt; initConfigurations = NULL
 #&gt; trainInstancesDir = "./Instances"
 #&gt; trainInstancesFile = ""
@@ -292,13 +292,13 @@
 #&gt; aclib = FALSE
 #&gt; ## end of irace scenario
 #&gt; # Parameters provided by user.
-#&gt; # Parameter file '/tmp/RtmpCPXyUH/file5fee604c475f/reference/parameters.txt' will be ignored
-#&gt; # 2020-04-30 12:22:28 UTC: Checking target execution.
+#&gt; # Parameter file '/tmp/RtmpZMD3Q5/file5d4219734aee/reference/parameters.txt' will be ignored
+#&gt; # 2020-05-02 15:31:15 UTC: Checking target execution.
 #&gt; # Executing targetRunner ( 2 times)...
 #&gt; # targetRunner returned:
 #&gt; [[1]]
 #&gt; [[1]]$cost
-#&gt; [1] 11.1352822168737
+#&gt; [1] 19.3174217396493
 #&gt; 
 #&gt; [[1]]$time
 #&gt; [1] NA
@@ -306,31 +306,31 @@
 #&gt; 
 #&gt; [[2]]
 #&gt; [[2]]$cost
-#&gt; [1] 5.77778739015593
+#&gt; [1] 7.99421540997235
 #&gt; 
 #&gt; [[2]]$time
 #&gt; [1] NA
 #&gt; 
 #&gt; 
-#&gt; # 2020-04-30 12:22:28 UTC: Check succesful.</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+#&gt; # 2020-05-02 15:31:15 UTC: Check succesful.</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
  <span class='co'># \donttest{</span>
  <span class='co'>## We are now ready to launch irace. We do it by means of the irace</span>
  <span class='co'>## function. The function will print information about its</span>
  <span class='co'>## progress. This may require a few minutes, so it is not run by default.</span>
- <span class='no'>tuned.confs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='irace.html'>irace</a></span>(<span class='kw'>scenario</span> <span class='kw'>=</span> <span class='no'>scenario</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>parameters</span>)</div><div class='output co'>#&gt; # 2020-04-30 12:22:28 UTC: Initialization
+ <span class='no'>tuned.confs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='irace.html'>irace</a></span>(<span class='kw'>scenario</span> <span class='kw'>=</span> <span class='no'>scenario</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>parameters</span>)</div><div class='output co'>#&gt; # 2020-05-02 15:31:15 UTC: Initialization
 #&gt; # Elitist race
 #&gt; # Elitist new instances: 1
 #&gt; # Elitist limit: 2
 #&gt; # nbIterations: 3
 #&gt; # minNbSurvival: 3
 #&gt; # nbParameters: 2
-#&gt; # seed: 1013894517
+#&gt; # seed: 994974186
 #&gt; # confidence level: 0.95
 #&gt; # budget: 500
 #&gt; # mu: 5
 #&gt; # deterministic: FALSE
 #&gt; 
-#&gt; # 2020-04-30 12:22:28 UTC: Iteration 1 of 3
+#&gt; # 2020-05-02 15:31:15 UTC: Iteration 1 of 3
 #&gt; # experimentsUsedSoFar: 0
 #&gt; # remainingBudget: 500
 #&gt; # currentBudget: 166
@@ -346,24 +346,24 @@
 #&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
 #&gt; | |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
 #&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
-#&gt; |x|          1|         27|          6|    1.102169394|         27|00:00:00|   NA|  NA|    NA|
-#&gt; |x|          2|         27|          6|    1.509969969|         54|00:00:00|+0.45|0.73|0.5636|
-#&gt; |x|          3|         27|         13|    2.781005985|         81|00:00:00|+0.18|0.45|0.8095|
-#&gt; |x|          4|         27|         11|    3.359504539|        108|00:00:00|+0.09|0.32|0.8913|
-#&gt; |=|          5|         27|         13|    2.643421814|        135|00:00:00|+0.07|0.25|0.9000|
-#&gt; |=|          6|         27|         11|    3.955689051|        162|00:00:00|+0.04|0.20|0.9168|
+#&gt; |x|          1|         27|          5|    2.290017585|         27|00:00:00|   NA|  NA|    NA|
+#&gt; |x|          2|         27|          5|    3.155830389|         54|00:00:00|+0.14|0.57|0.7571|
+#&gt; |x|          3|         27|         13|    3.690763632|         81|00:00:00|+0.08|0.39|0.8576|
+#&gt; |x|          4|         27|          9|    4.553492209|        108|00:00:00|-0.02|0.24|0.9604|
+#&gt; |=|          5|         27|          9|    4.219195024|        135|00:00:00|+0.03|0.22|0.9038|
+#&gt; |=|          6|         27|          9|    4.109697037|        162|00:00:00|+0.07|0.22|0.8384|
 #&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
-#&gt; Best-so-far configuration:          11    mean value:     3.955689051
+#&gt; Best-so-far configuration:           9    mean value:     4.109697037
 #&gt; Description of the best-so-far configuration:
-#&gt;    .ID. tmax   temp .PARENT.
-#&gt; 11   11  991 3.5948       NA
+#&gt;   .ID. tmax   temp .PARENT.
+#&gt; 9    9 2202 0.3743       NA
 #&gt; 
-#&gt; # 2020-04-30 12:22:30 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2020-05-02 15:31:17 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
-#&gt; 11  991  3.5948
-#&gt; 13  125 89.7807
-#&gt; 2  2402 14.2933
-#&gt; # 2020-04-30 12:22:30 UTC: Iteration 2 of 3
+#&gt; 9  2202  0.3743
+#&gt; 13  603 59.9319
+#&gt; 5  3051  2.2305
+#&gt; # 2020-05-02 15:31:17 UTC: Iteration 2 of 3
 #&gt; # experimentsUsedSoFar: 162
 #&gt; # remainingBudget: 338
 #&gt; # currentBudget: 169
@@ -379,29 +379,30 @@
 #&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
 #&gt; | |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
 #&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
-#&gt; |x|          7|         26|         29|   0.1877055087|         26|00:00:00|   NA|  NA|    NA|
-#&gt; |x|          5|         26|         29|    1.641615057|         49|00:00:00|+0.11|0.56|0.8454|
-#&gt; |x|          1|         26|         43|    1.418837753|         72|00:00:00|+0.07|0.38|0.8701|
-#&gt; |x|          6|         26|         43|    2.638358234|         95|00:00:00|-0.04|0.22|0.9457|
-#&gt; |=|          4|         26|         37|    2.973094536|        118|00:00:00|-0.04|0.17|0.9556|
-#&gt; |=|          3|         26|         37|    3.064260902|        141|00:00:00|-0.02|0.15|0.9602|
-#&gt; |=|          2|         26|         37|    3.060721625|        164|00:00:00|-0.02|0.12|0.9789|
+#&gt; |x|          7|         26|         49|    3.098720880|         26|00:00:00|   NA|  NA|    NA|
+#&gt; |x|          3|         26|         28|    2.331237547|         49|00:00:00|+0.28|0.64|0.6343|
+#&gt; |x|          2|         26|         28|    2.647674668|         72|00:00:00|+0.55|0.70|0.4368|
+#&gt; |x|          1|         26|         28|    2.237067058|         95|00:00:00|+0.55|0.66|0.4172|
+#&gt; |-|          6|         12|         47|    2.634270735|        118|00:00:00|+0.07|0.26|0.9264|
+#&gt; |=|          5|         12|         49|    3.018028418|        127|00:00:00|+0.12|0.27|0.8775|
+#&gt; |=|          4|         12|         32|    3.380518917|        136|00:00:00|+0.03|0.17|0.9359|
+#&gt; |=|          8|         12|         32|    3.217726054|        148|00:00:00|+0.07|0.18|0.8958|
 #&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
-#&gt; Best-so-far configuration:          37    mean value:     3.060721625
+#&gt; Best-so-far configuration:          32    mean value:     3.217726054
 #&gt; Description of the best-so-far configuration:
 #&gt;    .ID. tmax    temp .PARENT.
-#&gt; 37   37  272 93.3142       13
+#&gt; 32   32  196 58.7915       13
 #&gt; 
-#&gt; # 2020-04-30 12:22:31 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2020-05-02 15:31:18 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
-#&gt; 37  272 93.3142
-#&gt; 43  812  2.0122
-#&gt; 11  991  3.5948
-#&gt; # 2020-04-30 12:22:31 UTC: Iteration 3 of 3
-#&gt; # experimentsUsedSoFar: 326
-#&gt; # remainingBudget: 174
-#&gt; # currentBudget: 174
-#&gt; # nbConfigurations: 24
+#&gt; 32  196 58.7915
+#&gt; 47  249 68.6803
+#&gt; 28  311 41.8166
+#&gt; # 2020-05-02 15:31:18 UTC: Iteration 3 of 3
+#&gt; # experimentsUsedSoFar: 310
+#&gt; # remainingBudget: 190
+#&gt; # currentBudget: 190
+#&gt; # nbConfigurations: 23
 #&gt; # Markers:
 #&gt;      x No test is performed.
 #&gt;      c Configurations are discarded only due to capping.
@@ -413,78 +414,41 @@
 #&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
 #&gt; | |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
 #&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
-#&gt; |x|          8|         24|         58|  0.09574502523|         24|00:00:00|   NA|  NA|    NA|
-#&gt; |x|          5|         24|         61|   0.2548280327|         45|00:00:00|+0.10|0.55|0.8628|
-#&gt; |x|          6|         24|         61|    1.220369398|         66|00:00:00|+0.20|0.47|0.8301|
-#&gt; |x|          7|         24|         61|   0.9297940943|         87|00:00:00|+0.32|0.49|0.7495|
-#&gt; |-|          2|         12|         61|   0.9086625690|        108|00:00:00|+0.09|0.27|0.8214|
-#&gt; |=|          4|         12|         65|    1.125871799|        117|00:00:00|+0.03|0.19|0.8636|
-#&gt; |=|          3|         12|         65|    1.029137752|        126|00:00:00|+0.07|0.20|0.8588|
-#&gt; |=|          1|         12|         65|    1.291429503|        135|00:00:00|+0.08|0.19|0.8516|
-#&gt; |=|          9|         12|         65|    1.244648008|        147|00:00:00|+0.09|0.19|0.8244|
+#&gt; |x|          9|         23|         70|   0.3997056418|         23|00:00:00|   NA|  NA|    NA|
+#&gt; |x|          7|         23|         54|   0.7535501996|         43|00:00:00|+0.05|0.53|0.4993|
+#&gt; |x|          2|         23|         67|   0.9960981060|         63|00:00:00|-0.01|0.32|0.8315|
+#&gt; |x|          5|         23|         66|    1.463766777|         83|00:00:00|-0.00|0.25|0.9599|
+#&gt; |=|          8|         23|         66|    1.905954777|        103|00:00:00|+0.04|0.23|0.8734|
+#&gt; |=|          4|         23|         66|    1.600697698|        123|00:00:00|+0.06|0.21|0.8787|
+#&gt; |=|          1|         23|         54|    2.243842742|        143|00:00:00|+0.06|0.19|0.8903|
+#&gt; |=|          3|         23|         66|    1.636751343|        163|00:00:00|+0.04|0.16|0.9127|
+#&gt; |=|          6|         23|         66|    1.974441965|        183|00:00:00|-0.02|0.09|0.9552|
 #&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
-#&gt; Best-so-far configuration:          65    mean value:     1.244648008
+#&gt; Best-so-far configuration:          66    mean value:     1.974441965
 #&gt; Description of the best-so-far configuration:
-#&gt;    .ID. tmax   temp .PARENT.
-#&gt; 65   65  916 0.1689       43
+#&gt;    .ID. tmax    temp .PARENT.
+#&gt; 66   66  110 41.5943       28
 #&gt; 
-#&gt; # 2020-04-30 12:22:32 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
-#&gt;    tmax   temp
-#&gt; 65  916 0.1689
-#&gt; 58  879 0.2135
-#&gt; 60  855 2.2332
-#&gt; # 2020-04-30 12:22:32 UTC: Iteration 4 of 4
-#&gt; # experimentsUsedSoFar: 473
-#&gt; # remainingBudget: 27
-#&gt; # currentBudget: 27
-#&gt; # nbConfigurations: 5
-#&gt; # Markers:
-#&gt;      x No test is performed.
-#&gt;      c Configurations are discarded only due to capping.
-#&gt;      - The test is performed and some configurations are discarded.
-#&gt;      = The test is performed but no configuration is discarded.
-#&gt;      ! The test is performed and configurations could be discarded but elite configurations are preserved.
-#&gt;      . All alive configurations are elite and nothing is discarded
-#&gt; 
-#&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
-#&gt; | |   Instance|      Alive|       Best|      Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
-#&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
-#&gt; |x|         10|          5|         73|    1.990258223|          5|00:00:00|   NA|  NA|    NA|
-#&gt; |x|          9|          5|         65|    1.916291170|          7|00:00:00|-0.80|0.10|1.2926|
-#&gt; |x|          3|          5|         65|    1.427105270|          9|00:00:00|-0.20|0.20|0.8634|
-#&gt; |x|          6|          5|         65|    2.077689181|         11|00:00:00|-0.15|0.14|0.9189|
-#&gt; |=|          4|          5|         65|    1.859069174|         13|00:00:00|-0.10|0.12|0.8857|
-#&gt; |=|          2|          5|         65|    1.628282448|         15|00:00:00|-0.12|0.07|0.8743|
-#&gt; |=|          8|          5|         65|    1.474189050|         17|00:00:00|-0.04|0.11|0.8088|
-#&gt; |=|          1|          5|         65|    1.680849389|         19|00:00:00|-0.01|0.11|0.8061|
-#&gt; |=|          7|          5|         58|    1.936989490|         21|00:00:00|+0.03|0.14|0.7579|
-#&gt; |=|          5|          5|         65|    1.416401836|         23|00:00:00|+0.03|0.13|0.7810|
-#&gt; +-+-----------+-----------+-----------+---------------+-----------+--------+-----+----+------+
-#&gt; Best-so-far configuration:          65    mean value:     1.416401836
-#&gt; Description of the best-so-far configuration:
-#&gt;    .ID. tmax   temp .PARENT.
-#&gt; 65   65  916 0.1689       43
-#&gt; 
-#&gt; # 2020-04-30 12:22:33 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
-#&gt;    tmax   temp
-#&gt; 65  916 0.1689
-#&gt; 58  879 0.2135
-#&gt; 60  855 2.2332
-#&gt; # 2020-04-30 12:22:33 UTC: Stopped because there is not enough budget left to race more than the minimum (3)
+#&gt; # 2020-05-02 15:31:20 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt;    tmax    temp
+#&gt; 66  110 41.5943
+#&gt; 54  350 59.5777
+#&gt; 67  290 41.4275
+#&gt; # 2020-05-02 15:31:20 UTC: Stopped because there is not enough budget left to race more than the minimum (3)
 #&gt; # You may either increase the budget or set 'minNbSurvival' to a lower value
-#&gt; # Iteration: 5
-#&gt; # nbIterations: 5
-#&gt; # experimentsUsedSoFar: 496
+#&gt; # Iteration: 4
+#&gt; # nbIterations: 4
+#&gt; # experimentsUsedSoFar: 493
 #&gt; # timeUsed: 0
-#&gt; # remainingBudget: 4
-#&gt; # currentBudget: 4
+#&gt; # remainingBudget: 7
+#&gt; # currentBudget: 7
 #&gt; # number of elites: 3
 #&gt; # nbConfigurations: 3</div><div class='input'>
  <span class='co'>## We can print the best configurations found by irace as follows:</span>
- <span class='fu'><a href='configurations.print.html'>configurations.print</a></span>(<span class='no'>tuned.confs</span>)</div><div class='output co'>#&gt;    tmax   temp
-#&gt; 65  916 0.1689
-#&gt; 58  879 0.2135
-#&gt; 60  855 2.2332</div><div class='input'>
+ <span class='fu'><a href='configurations.print.html'>configurations.print</a></span>(<span class='no'>tuned.confs</span>)</div><div class='output co'>#&gt;    tmax    temp
+#&gt; 66  110 41.5943
+#&gt; 54  350 59.5777
+#&gt; 67  290 41.4275</div><div class='input'>
  <span class='co'>## We can evaluate the quality of the best configuration found by</span>
  <span class='co'>## irace versus the default configuration of the SANN algorithm on</span>
  <span class='co'>## the other 10 instances previously generated.</span>
