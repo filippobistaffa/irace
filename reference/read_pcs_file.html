@@ -180,7 +180,7 @@ will stop with an error.</p>
  '</span>
  <span class='no'>parameters.table</span> <span class='kw'>&lt;-</span> <span class='fu'>read_pcs_file</span>(<span class='kw'>text</span><span class='kw'>=</span><span class='no'>pcs.table</span>)
  <span class='no'>parameters</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='readParameters.html'>readParameters</a></span>(<span class='kw'>text</span><span class='kw'>=</span><span class='no'>parameters.table</span>)
- <span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>parameters</span>)</div><div class='output co'>#&gt; List of 12
+ <span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>parameters</span>)</div><div class='output co'>#&gt; List of 13
 #&gt;  $ names       : chr [1:11] "algorithm" "localsearch" "alpha" "beta" ...
 #&gt;  $ types       : Named chr [1:11] "c" "c" "r" "r" ...
 #&gt;   ..- attr(*, "names")= chr [1:11] "algorithm" "localsearch" "alpha" "beta" ...
@@ -224,6 +224,8 @@ will stop with an error.</p>
 #&gt;   ..$ elitistants: chr ""
 #&gt;   ..$ nnls       : chr ""
 #&gt;   ..$ dlb        : chr ""
+#&gt;  $ isDependent : Named logi [1:11] FALSE FALSE FALSE FALSE FALSE FALSE ...
+#&gt;   ..- attr(*, "names")= chr [1:11] "algorithm" "localsearch" "alpha" "beta" ...
 #&gt;  $ depends     :List of 11
 #&gt;   ..$ algorithm  : chr(0) 
 #&gt;   ..$ localsearch: chr(0) 
