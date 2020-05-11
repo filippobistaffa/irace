@@ -230,11 +230,11 @@
 
  <span class='co'>## We check that the scenario is valid. This will also try to execute</span>
  <span class='co'>## target.runner.</span>
- <span class='fu'><a href='checkIraceScenario.html'>checkIraceScenario</a></span>(<span class='no'>scenario</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>parameters</span>)</div><div class='output co'>#&gt; # 2020-05-04 16:21:43 UTC: Checking scenario
+ <span class='fu'><a href='checkIraceScenario.html'>checkIraceScenario</a></span>(<span class='no'>scenario</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>parameters</span>)</div><div class='output co'>#&gt; # 2020-05-11 15:48:13 UTC: Checking scenario
 #&gt; ## irace scenario:
 #&gt; scenarioFile = "./scenario.txt"
-#&gt; parameterFile = "/tmp/Rtmp5Sp7pr/file6bd066e3d799/reference/parameters.txt"
-#&gt; execDir = "/tmp/Rtmp5Sp7pr/file6bd066e3d799/reference"
+#&gt; parameterFile = "/tmp/RtmpCAM8Hn/file652f7f311b34/reference/parameters.txt"
+#&gt; execDir = "/tmp/RtmpCAM8Hn/file652f7f311b34/reference"
 #&gt; logFile = NULL
 #&gt; recoveryFile = NULL
 #&gt; instances = c(0.949576931095124, 0.898052975589976, 0.910406494863153, 0.915158114994512, 0.906132162417802, 0.88495724971745, 0.878288225671879, 0.887177970470628, 0.905393862916816, 0.926318907407635)
@@ -292,8 +292,8 @@
 #&gt; aclib = FALSE
 #&gt; ## end of irace scenario
 #&gt; # Parameters provided by user.
-#&gt; # Parameter file '/tmp/Rtmp5Sp7pr/file6bd066e3d799/reference/parameters.txt' will be ignored
-#&gt; # 2020-05-04 16:21:43 UTC: Checking target execution.
+#&gt; # Parameter file '/tmp/RtmpCAM8Hn/file652f7f311b34/reference/parameters.txt' will be ignored
+#&gt; # 2020-05-11 15:48:13 UTC: Checking target execution.
 #&gt; # Executing targetRunner ( 2 times)...
 #&gt; # targetRunner returned:
 #&gt; [[1]]
@@ -312,12 +312,12 @@
 #&gt; [1] NA
 #&gt; 
 #&gt; 
-#&gt; # 2020-05-04 16:21:43 UTC: Check succesful.</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+#&gt; # 2020-05-11 15:48:13 UTC: Check succesful.</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
  <span class='co'># \donttest{</span>
  <span class='co'>## We are now ready to launch irace. We do it by means of the irace</span>
  <span class='co'>## function. The function will print information about its</span>
  <span class='co'>## progress. This may require a few minutes, so it is not run by default.</span>
- <span class='no'>tuned.confs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='irace.html'>irace</a></span>(<span class='kw'>scenario</span> <span class='kw'>=</span> <span class='no'>scenario</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>parameters</span>)</div><div class='output co'>#&gt; # 2020-05-04 16:21:43 UTC: Initialization
+ <span class='no'>tuned.confs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='irace.html'>irace</a></span>(<span class='kw'>scenario</span> <span class='kw'>=</span> <span class='no'>scenario</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>parameters</span>)</div><div class='output co'>#&gt; # 2020-05-11 15:48:13 UTC: Initialization
 #&gt; # Elitist race
 #&gt; # Elitist new instances: 1
 #&gt; # Elitist limit: 2
@@ -330,7 +330,7 @@
 #&gt; # mu: 5
 #&gt; # deterministic: FALSE
 #&gt; 
-#&gt; # 2020-05-04 16:21:43 UTC: Iteration 1 of 3
+#&gt; # 2020-05-11 15:48:13 UTC: Iteration 1 of 3
 #&gt; # experimentsUsedSoFar: 0
 #&gt; # remainingBudget: 500
 #&gt; # currentBudget: 166
@@ -358,12 +358,12 @@
 #&gt;   .ID. tmax   temp .PARENT.
 #&gt; 9    9 2202 0.3743       NA
 #&gt; 
-#&gt; # 2020-05-04 16:21:44 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2020-05-11 15:48:14 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
 #&gt; 9  2202  0.3743
 #&gt; 13  603 59.9319
 #&gt; 5  3051  2.2305
-#&gt; # 2020-05-04 16:21:44 UTC: Iteration 2 of 3
+#&gt; # 2020-05-11 15:48:14 UTC: Iteration 2 of 3
 #&gt; # experimentsUsedSoFar: 162
 #&gt; # remainingBudget: 338
 #&gt; # currentBudget: 169
@@ -393,12 +393,12 @@
 #&gt;    .ID. tmax    temp .PARENT.
 #&gt; 32   32  196 58.7915       13
 #&gt; 
-#&gt; # 2020-05-04 16:21:45 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2020-05-11 15:48:16 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
 #&gt; 32  196 58.7915
 #&gt; 47  249 68.6803
 #&gt; 28  311 41.8166
-#&gt; # 2020-05-04 16:21:45 UTC: Iteration 3 of 3
+#&gt; # 2020-05-11 15:48:16 UTC: Iteration 3 of 3
 #&gt; # experimentsUsedSoFar: 310
 #&gt; # remainingBudget: 190
 #&gt; # currentBudget: 190
@@ -429,12 +429,12 @@
 #&gt;    .ID. tmax    temp .PARENT.
 #&gt; 66   66  110 41.5943       28
 #&gt; 
-#&gt; # 2020-05-04 16:21:47 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2020-05-11 15:48:17 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
 #&gt; 66  110 41.5943
 #&gt; 54  350 59.5777
 #&gt; 67  290 41.4275
-#&gt; # 2020-05-04 16:21:47 UTC: Stopped because there is not enough budget left to race more than the minimum (3)
+#&gt; # 2020-05-11 15:48:17 UTC: Stopped because there is not enough budget left to race more than the minimum (3)
 #&gt; # You may either increase the budget or set 'minNbSurvival' to a lower value
 #&gt; # Iteration: 4
 #&gt; # nbIterations: 4
