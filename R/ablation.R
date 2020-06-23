@@ -146,6 +146,8 @@ ablation <- function(iraceLogFile = NULL, iraceResults = NULL,
 
   parameters <- iraceResults$parameters
   scenario   <- iraceResults$scenario
+  experimentLog <- ExperimentLog$new()
+  experimentLog$newIteration()
   
   if (!is.null(ablationLogFile)) scenario$logFile <- ablationLogFile
   if (!is.null(debugLevel)) scenario$debugLevel <- debugLevel
@@ -257,14 +259,17 @@ ablation <- function(iraceLogFile = NULL, iraceResults = NULL,
     irace.note("Ablation (", type, ") of ", nrow(aconfigurations),
                " configurations on ", nrow(instances), " instances.\n")
     # MANUEL: Is this racing or just running the configurations?
+    # LESLIE: It is a race, racing is the way we evaluate which configuration is better than other
     race.output <- race(maxExp = nrow(aconfigurations) * nrow(instances),
                         minSurvival = 1,
                         elite.data = elite.data,
                         configurations = race.conf,
                         parameters = parameters,
                         scenario = scenario,
+                        experimentLog = experimentLog,
                         elitistNewInstances = 0)	
     results <- merge.matrix (results, race.output$experiments)
+    experimentLog <- race.output$experimentLog
 
     # Save temp log
     ab.log <- list(configurations  = all.configurations,
@@ -272,7 +277,8 @@ ablation <- function(iraceLogFile = NULL, iraceResults = NULL,
                  experiments = results, 
                  scenario    = scenario, 
                  trajectory  = trajectory, 
-                 changes     = changes)
+                 changes     = changes,
+                 experimentLog = experimentLog)
     if (!is.null(ablationLogFile))
       save(ab.log, file = ablationLogFile, version = 2)
     

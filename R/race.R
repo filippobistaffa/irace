@@ -552,6 +552,7 @@ race <- function(maxExp = 0,
                  configurations,
                  parameters,
                  scenario,
+                 experimentLog,
                  elitistNewInstances)
 {
   race.env <- new.env(parent = emptyenv())
@@ -565,8 +566,6 @@ race <- function(maxExp = 0,
   each.test <- scenario$eachTest
   elitist <- scenario$elitist
   no.configurations <- nrow(configurations)
-  experimentLog <- matrix(nrow = 0, ncol = 4,
-                          dimnames = list(NULL, c("instance", "configuration", "time", "bound")))
   alive <- rep(TRUE, no.configurations)
   is.rejected <- rep(FALSE, no.configurations)
   
@@ -676,11 +675,11 @@ race <- function(maxExp = 0,
         vtimes <- unlist(lapply(output, "[[", "time"))
         irace.assert(length(vtimes) == n.elite)
         experimentsTime[k, which.elites] <- vtimes
-        experimentLog <- rbind(experimentLog,
-                               cbind(race.instances[k],
+        experimentLog$addExperiments(race.instances[k], 
                                      configurations[which.elites, ".ID."],
                                      vtimes,
-                                     scenario$boundMax))     
+                                     scenario$boundMax)
+    
         experimentsUsed <- experimentsUsed + n.elite
         
         # We remove elite configurations that are rejected given that
@@ -863,11 +862,10 @@ race <- function(maxExp = 0,
         vtimes <- unlist(lapply(output, "[[", "time"))
         irace.assert(length(vtimes) == length(which.elite.exe))
         experimentsTime[current.task, which.elite.exe] <- vtimes
-        experimentLog <- rbind(experimentLog,
-                               cbind(race.instances[current.task],
+        experimentLog$addExperiments(race.instances[current.task],
                                      configurations[which.elite.exe, ".ID."],
                                      vtimes,
-                                     scenario$boundMax))
+                                     scenario$boundMax)
         experimentsUsed <- experimentsUsed + length(which.elite.exe)
           
         # We remove elite configurations that are rejected given that
@@ -944,11 +942,10 @@ race <- function(maxExp = 0,
       # Correct higher execution times.
       experimentsTime[current.task, which.exps] <- pmin(vtimes, final.bounds[which.exps])
     }
-    experimentLog <- rbind(experimentLog,
-                           cbind(race.instances[current.task],
+    experimentLog$addExperiments(race.instances[current.task],
                                  configurations[which.exe, ".ID."],
-                                 vtimes, 
-                                 if (is.null(final.bounds)) NA else final.bounds[which.exe]))
+                                 vtimes,
+                                 if (is.null(final.bounds)) NA else final.bounds[which.exe])
 
     experimentsUsed <- experimentsUsed + length(which.exe)
     # We update the elites that have been executed.
@@ -1144,7 +1141,7 @@ race <- function(maxExp = 0,
   }
 
   # nrow(Results) may be smaller, equal or larger than current.task.
-  irace.assert(nrow(experimentLog) == experimentsUsed)
+  irace.assert(experimentLog$getNExperimentsIteration() == experimentsUsed)
 
   return(list(experiments = Results,
               experimentLog = experimentLog,
