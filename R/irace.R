@@ -442,7 +442,7 @@ do.experiments <- function(configurations, ninstances, scenario, parameters, exp
     irace.assert(!any(is.null(vtimes)))
     experimentLog$add_experiment(instance = j, 
                                  configuration_id = configurations$.ID., 
-                                 times = vtimes, 
+                                 time = vtimes, 
                                  bound = if(!is.null(scenario$boundMax)) 
                                              scenario$boundMax else NA)
   }

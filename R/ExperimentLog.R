@@ -1,65 +1,64 @@
 ExperimentLog <- R6Class("ExperimentLog",
     public = list(
-      nExperiments = 0,
-      nIterations = 0,
-      estimation.log = NULL,
-      iteration.log = NULL,
-      current.index = 0,
-      total.time = 0,
-      total.experiments = 0,
+      estimation_log = NULL,
+      iteration_log = NULL,
+      current_index = 0L,
+      total_experiments = 0L,
+      total_time = 0,
       
       initialize = function () {
-        self$iteration.log <- list()
-        self$estimation.log <- list()
-        self$current.index <- 0
-        self$total.time <- 0
-        self$total.experiments <- 0
-        self$estimation.log <- matrix(nrow = 0, ncol = 5, 
+        # FIXME: This is initialized already above
+        self$iteration_log <- list()
+        self$current_index <- 0
+        self$total_time <- 0
+        self$total_experiments <- 0
+        self$estimation_log <- matrix(nrow = 0, ncol = 5, 
                  dimnames = list(NULL, c("iteration", "instance", "configuration", "time", "bound")))
       },
       
       addExperimentsMatrix = function (data) {
-        if (ncol(data)!=4)
+        if (ncol(data) != 4)
           irace.error("ExperimentLog adding data format is not correct.")
-        index <- self$current.index
+        index <- self$current_index
         if (index == 0) {
-          self$estimation.log <- rbind(self$estimation.log,
+          self$estimation_log <- rbind(self$estimation_log,
                                   cbind(rep(0, nrow(data)), data))
         } else {
-          self$iteration.log[[index]] <- rbind(self$iteration.log[[index]],
+          self$iteration_log[[index]] <- rbind(self$iteration_log[[index]],
                                cbind(rep(index, nrow(data)),data)) 
         }
-        self$total.time <- self$total.time + sum(data[,3])
-        self$total.experiments <- self$total.experiments + nrow(data)
+        # Column 3 is time
+        self$total_time <- self$total_time + sum(data[,3])
+        self$total_experiments <- self$total_experiments + nrow(data)
       },
       
-      add_experiment = function (instance, configuration_id, times, bound) {
-        index <- self$current.index
-        if (self$current.index == 0) {
-          self$estimation.log <- rbind(self$estimation.log,
+      add_experiment = function (instance, configuration_id, time, bound) {
+        index <- self$current_index
+        if (self$current_index == 0) {
+          self$estimation_log <- rbind(self$estimation_log,
                                   cbind(0, instance, configuration_id, 
-                                        times, bound))
+                                        time, bound))
         } else {
-          self$iteration.log[[index]] <- rbind(self$iteration.log[[index]],
+          self$iteration_log[[index]] <- rbind(self$iteration_log[[index]],
                                cbind(index, instance, configuration_id, 
-                                     times, bound))
+                                     time, bound))
         }    
-        self$total.time <- self$total.time + sum(times)
-        self$total.experiments <- self$total.experiments + length(times)
+        self$total_time <- self$total_time + sum(time)
+        self$total_experiments <- self$total_experiments + length(time)
       },
       
       newIteration = function () {
-        self$current.index <- self$current.index + 1
-        index <- self$current.index
-        self$iteration.log[[index]] <- matrix(nrow = 0, ncol = 5, 
+        self$current_index <- self$current_index + 1
+        index <- self$current_index
+        self$iteration_log[[index]] <- matrix(nrow = 0, ncol = 5, 
                  dimnames = list(NULL, c("iteration", "instance", "configuration", "time", "bound")))
       },
 
       getByConfigurations = function (configuration.ids, cols = c("iteration", "instance", "configuration", "time", "bound")) {
-        irace.assert(nrow(self$estimation.log) > 0 || self$current.index > 0)
-        index <- self$current.index
+        irace.assert(nrow(self$estimation_log) > 0 || self$current_index > 0)
+        index <- self$current_index
         data <- NULL
-        if (nrow(self$estimation.log) > 0) {
+        if (nrow(self$estimation_log) > 0) {
           data <- private$getExpEstimation(configuration.ids)
         }
         
@@ -72,30 +71,30 @@ ExperimentLog <- R6Class("ExperimentLog",
         return (data)
       },
       
-      getIterationUsedTime = function (index = self$current.index) {
+      getIterationUsedTime = function (index = self$current_index) {
         if (index==0){
-          return(sum(self$estimation.log[,"time"]))
+          return(sum(self$estimation_log[,"time"]))
         } else {
-          irace.assert (index !=0 && index <= self$current.index)
-          return(sum(self$iteration.log[[index]][,"time"]))
+          irace.assert (index !=0 && index <= self$current_index)
+          return(sum(self$iteration_log[[index]][,"time"]))
         }
       },
       
       getUsedTime = function (){
-        return (self$total.time)
+        return (self$total_time)
       },
       
       getBoundEstimate = function () {
-        return (self$total.time/self$total.experiments)
+        return (self$total_time/self$total_experiments)
       },
    
-      getNExperimentsIteration = function (index = self$current.index) {
-        irace.assert (index !=0 && index <= self$current.index)
-        return(nrow(self$iteration.log[[index]]))
+      getNExperimentsIteration = function (index = self$current_index) {
+        irace.assert (index !=0 && index <= self$current_index)
+        return(nrow(self$iteration_log[[index]]))
       },
       
       getNExperiments = function () {
-        return (self$total.experiments)
+        return (self$total_experiments)
       },
       
       getTimeMatrix = function (configuration.ids) {
@@ -116,15 +115,15 @@ ExperimentLog <- R6Class("ExperimentLog",
     
     private = list(
       
-      getExpIteration = function (index = self$current.index, ids) {
-        irace.assert (index !=0 && index <= self$current.index)
-        return(self$iteration.log[[index]][self$iteration.log[[index]][,"configuration"] %in% ids,,drop=FALSE])
+      getExpIteration = function (index = self$current_index, ids) {
+        irace.assert (index !=0 && index <= self$current_index)
+        return(self$iteration_log[[index]][self$iteration_log[[index]][,"configuration"] %in% ids,,drop=FALSE])
       },
       
       getExpEstimation = function (ids) {
-        if (nrow(self$estimation.log) < 1) 
+        if (nrow(self$estimation_log) < 1) 
           return(NULL)
-        return(self$estimation.log[self$estimation.log[,"configuration"] %in% ids,, drop=FALSE])
+        return(self$estimation_log[self$estimation_log[,"configuration"] %in% ids,, drop=FALSE])
       }
     )
                          
