@@ -431,8 +431,6 @@ do.experiments <- function(configurations, ninstances, scenario, parameters, exp
                                         
   Results <- matrix(nrow = ninstances, ncol = nrow(configurations),
                     dimnames = list(1:ninstances, as.character(configurations[, ".ID."])))
-  log <- matrix(nrow = 0, ncol = 4,
-                          dimnames = list(NULL, c("instance", "configuration", "time", "bound")))
                           
   # Extract results
   for (j in seq_len(ninstances)) {
@@ -442,15 +440,15 @@ do.experiments <- function(configurations, ninstances, scenario, parameters, exp
     Results[j, ] <- vcost
     vtimes <- unlist(lapply(output[[j]], "[[", "time"))
     irace.assert(!any(is.null(vtimes)))
-    experimentLog$addExperiments(instance = j, 
-                                 configuration.id = configurations$.ID., 
+    experimentLog$add_experiment(instance = j, 
+                                 configuration_id = configurations$.ID., 
                                  times = vtimes, 
                                  bound = if(!is.null(scenario$boundMax)) 
                                              scenario$boundMax else NA)
   }
   
   rejectedIDs <- configurations[apply(is.infinite(Results), 2, any), ".ID."]
-  return (list(experiments = Results, experimentLog = experimentLog, rejectedIDs = rejectedIDs))
+  return (list(experiments = Results, rejectedIDs = rejectedIDs))
 }
 
 ## Initialize allConfigurations with any initial configurations provided.
@@ -652,8 +650,7 @@ irace <- function(scenario, parameters)
         output <- do.experiments(configurations = allConfigurations[next.configuration:nconfigurations, ],
                                  ninstances = ninstances, scenario = scenario, parameters = parameters,
                                  experimentLog = iraceResults$experimentLog)  
-        iraceResults$experimentLog <- output$experimentLog
-        
+                
         iraceResults$experiments <- merge.matrix (iraceResults$experiments,
                                                   output$experiments)
         rownames(iraceResults$experiments) <- 1:nrow(iraceResults$experiments)
@@ -669,6 +666,7 @@ irace <- function(scenario, parameters)
         timeUsed <- iraceResults$experimentLog$getUsedTime()
         # User should return time zero for rejectedIDs.
         boundEstimate <- iraceResults$experimentLog$getBoundEstimate()
+        # MANUEL: When is boundMax null?
         if (boundEstimate <= 0)
           boundEstimate <- if (!is.null(scenario$boundMax)) scenario$boundMax else 1.0
         
@@ -1079,8 +1077,7 @@ irace <- function(scenario, parameters)
     # can be updated in the race function.
 
     # We add indexIteration as an additional column.
-    iraceResults$experimentLog <- raceResults$experimentLog
-    
+        
     # Merge new results.
     iraceResults$experiments <- merge.matrix (iraceResults$experiments,
                                               raceResults$experiments)

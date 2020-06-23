@@ -675,7 +675,7 @@ race <- function(maxExp = 0,
         vtimes <- unlist(lapply(output, "[[", "time"))
         irace.assert(length(vtimes) == n.elite)
         experimentsTime[k, which.elites] <- vtimes
-        experimentLog$addExperiments(race.instances[k], 
+        experimentLog$add_experiment(race.instances[k], 
                                      configurations[which.elites, ".ID."],
                                      vtimes,
                                      scenario$boundMax)
@@ -862,7 +862,7 @@ race <- function(maxExp = 0,
         vtimes <- unlist(lapply(output, "[[", "time"))
         irace.assert(length(vtimes) == length(which.elite.exe))
         experimentsTime[current.task, which.elite.exe] <- vtimes
-        experimentLog$addExperiments(race.instances[current.task],
+        experimentLog$add_experiment(race.instances[current.task],
                                      configurations[which.elite.exe, ".ID."],
                                      vtimes,
                                      scenario$boundMax)
@@ -942,7 +942,7 @@ race <- function(maxExp = 0,
       # Correct higher execution times.
       experimentsTime[current.task, which.exps] <- pmin(vtimes, final.bounds[which.exps])
     }
-    experimentLog$addExperiments(race.instances[current.task],
+    experimentLog$add_experiment(race.instances[current.task],
                                  configurations[which.exe, ".ID."],
                                  vtimes,
                                  if (is.null(final.bounds)) NA else final.bounds[which.exe])
@@ -1144,7 +1144,6 @@ race <- function(maxExp = 0,
   irace.assert(experimentLog$getNExperimentsIteration() == experimentsUsed)
 
   return(list(experiments = Results,
-              experimentLog = experimentLog,
               experimentsUsed = experimentsUsed,
               nbAlive = nbAlive,
               configurations = configurations,

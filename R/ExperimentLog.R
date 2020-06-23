@@ -33,15 +33,15 @@ ExperimentLog <- R6Class("ExperimentLog",
         self$total.experiments <- self$total.experiments + nrow(data)
       },
       
-      addExperiments = function (instance, configuration.id, times, bound) {
+      add_experiment = function (instance, configuration_id, times, bound) {
         index <- self$current.index
         if (self$current.index == 0) {
           self$estimation.log <- rbind(self$estimation.log,
-                                  cbind(0, instance, configuration.id, 
+                                  cbind(0, instance, configuration_id, 
                                         times, bound))
         } else {
           self$iteration.log[[index]] <- rbind(self$iteration.log[[index]],
-                               cbind(index, instance, configuration.id, 
+                               cbind(index, instance, configuration_id, 
                                      times, bound))
         }    
         self$total.time <- self$total.time + sum(times)

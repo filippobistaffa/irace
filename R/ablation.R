@@ -269,8 +269,7 @@ ablation <- function(iraceLogFile = NULL, iraceResults = NULL,
                         experimentLog = experimentLog,
                         elitistNewInstances = 0)	
     results <- merge.matrix (results, race.output$experiments)
-    experimentLog <- race.output$experimentLog
-
+    
     # Save temp log
     ab.log <- list(configurations  = all.configurations,
                  instances   = instances, 
