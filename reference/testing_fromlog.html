@@ -6,9 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Execute the given configurations on the testing instances specified in the
-scenario
-#' — testConfigurations • irace</title>
+<title>Test configurations given in <code>.Rdata</code> file — testing_fromlog • irace</title>
 
 
 <!-- jquery -->
@@ -41,12 +39,9 @@ scenario
 
 
 
-<meta property="og:title" content="Execute the given configurations on the testing instances specified in the
-scenario
-#' — testConfigurations" />
-<meta property="og:description" content="Execute the given configurations on the testing instances specified in the
-scenario
-#'" />
+<meta property="og:title" content="Test configurations given in <code>.Rdata</code> file — testing_fromlog" />
+<meta property="og:description" content="testing_fromlog executes the testing of the target algorithm configurations
+found by an irace execution." />
 
 
 
@@ -114,57 +109,67 @@ scenario
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Execute the given configurations on the testing instances specified in the
-scenario
-#'</h1>
-    <small class="dont-index">Source: <a href='https://github.com/MLopez-Ibanez/irace/blob/master/R/testing.R'><code>R/testing.R</code></a></small>
-    <div class="hidden name"><code>testConfigurations.Rd</code></div>
+    <h1>Test configurations given in <code>.Rdata</code> file</h1>
+    <small class="dont-index">Source: <a href='https://github.com/MLopez-Ibanez/irace/blob/master/R/main.R'><code>R/main.R</code></a></small>
+    <div class="hidden name"><code>testing_fromlog.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Execute the given configurations on the testing instances specified in the
-scenario
-#'</p>
+    <p><code>testing_fromlog</code> executes the testing of the target algorithm configurations
+found by an <span class="pkg">irace</span> execution.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>testConfigurations</span>(<span class='no'>configurations</span>, <span class='no'>scenario</span>, <span class='no'>parameters</span>)</pre>
+    <pre class="usage"><span class='fu'>testing_fromlog</span>(<span class='no'>logFile</span>, <span class='no'>testNbElites</span>, <span class='no'>testIterationElites</span>,
+  <span class='no'>testInstancesDir</span>, <span class='no'>testInstancesFile</span>, <span class='no'>testInstances</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>configurations</th>
-      <td><p>(<code>data.frame</code>) <br /> Parameter configurations of the
-target algorithm (one per row).</p></td>
+      <th>logFile</th>
+      <td><p>Path to the <code>.Rdata</code> file produced by <span class="pkg">irace</span>.</p></td>
     </tr>
     <tr>
-      <th>scenario</th>
-      <td><p>(<code><a href='https://rdrr.io/r/base/list.html'>list()</a></code>) <br /> Data structure containing <span class="pkg">irace</span>
-settings. The data structure has to be the one returned by the function
-<code><a href='defaultScenario.html'>defaultScenario</a></code> or <code><a href='readScenario.html'>readScenario</a></code>.</p></td>
+      <th>testNbElites</th>
+      <td><p>Number of (final) elite configurations to test. Overrides
+the value found in <code>logFile</code>.</p></td>
     </tr>
     <tr>
-      <th>parameters</th>
-      <td><p>(<code><a href='https://rdrr.io/r/base/list.html'>list()</a></code>) <br /> Data structure containing the parameter
-space definition. The data structure has to similar to the one returned by the
-function <code><a href='readParameters.html'>readParameters</a></code>.</p></td>
+      <th>testIterationElites</th>
+      <td><p>(<code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>) If <code>FALSE</code>, only the final
+<code>testNbElites</code> configurations are tested; otherwise, also test the best
+configurations of each iteration. Overrides the value found in <code>logFile</code>.</p></td>
+    </tr>
+    <tr>
+      <th>testInstancesDir</th>
+      <td><p>Directory where testing instances are located, either absolute or relative to current directory.</p></td>
+    </tr>
+    <tr>
+      <th>testInstancesFile</th>
+      <td><p>File containing a list of test instances and optionally additional parameters for them.</p></td>
+    </tr>
+    <tr>
+      <th>testInstances</th>
+      <td><p>Character vector of the instances to be used in the <code>targetRunner</code> when executing the testing.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list with the following elements:</p><dl'>
-<dt><code>experiments</code></dt><dd><p>Experiments results.</p></dd>
-<dt><code>seeds</code></dt><dd><p>Array of the instance seeds used in the experiments.</p></dd>
-
-</dl>
-
+    <p>Boolean. <code>TRUE</code> if the testing ended successfully otherwise, <code>FALSE</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>A test instance set must be provided through <code>scenario[["testInstances"]]</code>.</p>
+    <p>The function <code>testing_fromlog</code> loads the <code>logFile</code> and obtains the
+testing setup and configurations to be tested.  Within the <code>logFile</code>, the
+variable <code>scenario$testNbElites</code> specifies how many final elite
+configurations to test and <code>scenario$testIterationElites</code> indicates
+whether test the best configuration of each iteration. The values may be
+overridden by setting the corresponding arguments in this function.  The
+set of testing instances must appear in <code>scenario[["testInstances"]]</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='testing_fromlog.html'>testing_fromlog()</a></code></p></div>
+    <div class='dont-index'><p><code><a href='defaultScenario.html'>defaultScenario()</a></code> to provide a default scenario for <span class="pkg">irace</span>.
+<code><a href='testing_fromfile.html'>testing_fromfile()</a></code> provides a different interface for testing.</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

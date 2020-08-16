@@ -6,9 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Execute the given configurations on the testing instances specified in the
-scenario
-#' — testConfigurations • irace</title>
+<title>Test configurations given an explicit table of configurations and a scenario file — testing_fromfile • irace</title>
 
 
 <!-- jquery -->
@@ -41,12 +39,10 @@ scenario
 
 
 
-<meta property="og:title" content="Execute the given configurations on the testing instances specified in the
-scenario
-#' — testConfigurations" />
-<meta property="og:description" content="Execute the given configurations on the testing instances specified in the
-scenario
-#'" />
+<meta property="og:title" content="Test configurations given an explicit table of configurations and a scenario file — testing_fromfile" />
+<meta property="og:description" content="testing_fromfile executes the testing of an explicit list of configurations
+given filename. A logFile is created unless disabled scenario. This
+may overwrite an existing one!`" />
 
 
 
@@ -114,28 +110,26 @@ scenario
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Execute the given configurations on the testing instances specified in the
-scenario
-#'</h1>
-    <small class="dont-index">Source: <a href='https://github.com/MLopez-Ibanez/irace/blob/master/R/testing.R'><code>R/testing.R</code></a></small>
-    <div class="hidden name"><code>testConfigurations.Rd</code></div>
+    <h1>Test configurations given an explicit table of configurations and a scenario file</h1>
+    <small class="dont-index">Source: <a href='https://github.com/MLopez-Ibanez/irace/blob/master/R/main.R'><code>R/main.R</code></a></small>
+    <div class="hidden name"><code>testing_fromfile.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Execute the given configurations on the testing instances specified in the
-scenario
-#'</p>
+    <p><code>testing_fromfile</code> executes the testing of an explicit list of configurations
+given <code>filename</code>. A <code>logFile</code> is created unless disabled <code>scenario</code>. This
+may overwrite an existing one!`</p>
     </div>
 
-    <pre class="usage"><span class='fu'>testConfigurations</span>(<span class='no'>configurations</span>, <span class='no'>scenario</span>, <span class='no'>parameters</span>)</pre>
+    <pre class="usage"><span class='fu'>testing_fromfile</span>(<span class='no'>filename</span>, <span class='no'>scenario</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>configurations</th>
-      <td><p>(<code>data.frame</code>) <br /> Parameter configurations of the
-target algorithm (one per row).</p></td>
+      <th>filename</th>
+      <td><p>Path to a file containing configurations: one configuration
+per line, one parameter per column, parameter names in header.</p></td>
     </tr>
     <tr>
       <th>scenario</th>
@@ -143,28 +137,14 @@ target algorithm (one per row).</p></td>
 settings. The data structure has to be the one returned by the function
 <code><a href='defaultScenario.html'>defaultScenario</a></code> or <code><a href='readScenario.html'>readScenario</a></code>.</p></td>
     </tr>
-    <tr>
-      <th>parameters</th>
-      <td><p>(<code><a href='https://rdrr.io/r/base/list.html'>list()</a></code>) <br /> Data structure containing the parameter
-space definition. The data structure has to similar to the one returned by the
-function <code><a href='readParameters.html'>readParameters</a></code>.</p></td>
-    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list with the following elements:</p><dl'>
-<dt><code>experiments</code></dt><dd><p>Experiments results.</p></dd>
-<dt><code>seeds</code></dt><dd><p>Array of the instance seeds used in the experiments.</p></dd>
-
-</dl>
-
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>A test instance set must be provided through <code>scenario[["testInstances"]]</code>.</p>
+    <p>iraceResults</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='testing_fromlog.html'>testing_fromlog()</a></code></p></div>
+    <div class='dont-index'><p><code><a href='testing_fromlog.html'>testing_fromlog()</a></code> provides a different interface for testing.</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
