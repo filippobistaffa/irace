@@ -125,8 +125,15 @@
  plots are saved in one or more files.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>parameterFrequency</span>(<span class='no'>configurations</span>, <span class='no'>parameters</span>, <span class='kw'>rows</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>cols</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>filename</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>pdf.width</span> <span class='kw'>=</span> <span class='fl'>12</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>)</pre>
+    <pre class="usage"><span class='fu'>parameterFrequency</span>(
+  <span class='no'>configurations</span>,
+  <span class='no'>parameters</span>,
+  <span class='kw'>rows</span> <span class='kw'>=</span> <span class='fl'>4</span>,
+  <span class='kw'>cols</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>filename</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>pdf.width</span> <span class='kw'>=</span> <span class='fl'>12</span>,
+  <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"gray"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -177,18 +184,8 @@ displayed but not saved.</p></td>
 
  <span class='co'># First, load the data produced by irace.</span>
  <span class='no'>irace.logfile</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='kw'>package</span><span class='kw'>=</span><span class='st'>"irace"</span>), <span class='st'>"exdata"</span>, <span class='st'>"irace-acotsp.Rdata"</span>)
- <span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span>(<span class='no'>irace.logfile</span>)
- <span class='fu'><a href='https://rdrr.io/r/base/attach.html'>attach</a></span>(<span class='no'>iraceResults</span>)</div><div class='output co'>#&gt; <span class='message'>The following objects are masked from iraceResults (pos = 3):</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    allConfigurations, allElites, experimentLog, experiments,</span>
-#&gt; <span class='message'>    irace.version, iterationElites, parameters, scenario, softRestart,</span>
-#&gt; <span class='message'>    state, testing</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from iraceResults (pos = 4):</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    allConfigurations, allElites, experimentLog, experiments,</span>
-#&gt; <span class='message'>    irace.version, iterationElites, parameters, scenario, softRestart,</span>
-#&gt; <span class='message'>    state, testing</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from package:irace:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    irace.version</span></div><div class='input'> <span class='fu'>parameterFrequency</span>(<span class='no'>allConfigurations</span>, <span class='no'>parameters</span>)</div><div class='output co'>#&gt; Plotting: algorithm </div><div class='output co'>#&gt; Plotting: localsearch </div><div class='output co'>#&gt; Plotting: alpha </div><div class='output co'>#&gt; Plotting: beta </div><div class='output co'>#&gt; Plotting: rho </div><div class='output co'>#&gt; Plotting: ants </div><div class='output co'>#&gt; Plotting: nnls </div><div class='output co'>#&gt; Plotting: q0 </div><div class='output co'>#&gt; Plotting: dlb </div><div class='output co'>#&gt; Plotting: rasrank </div><div class='output co'>#&gt; Plotting: elitistants </div><div class='img'><img src='parameterFrequency-1.png' alt='' width='700' height='433' /></div><div class='input'># }
+ <span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span>(<span class='no'>irace.logfile</span>) <span class='co'># Creates iraceResults</span>
+ <span class='fu'>parameterFrequency</span>(<span class='no'>iraceResults</span>$<span class='no'>allConfigurations</span>, <span class='no'>iraceResults</span>$<span class='no'>parameters</span>)</div><div class='output co'>#&gt; Plotting: algorithm </div><div class='output co'>#&gt; Plotting: localsearch </div><div class='output co'>#&gt; Plotting: alpha </div><div class='output co'>#&gt; Plotting: beta </div><div class='output co'>#&gt; Plotting: rho </div><div class='output co'>#&gt; Plotting: ants </div><div class='output co'>#&gt; Plotting: nnls </div><div class='output co'>#&gt; Plotting: q0 </div><div class='output co'>#&gt; Plotting: dlb </div><div class='output co'>#&gt; Plotting: rasrank </div><div class='output co'>#&gt; Plotting: elitistants </div><div class='img'><img src='parameterFrequency-1.png' alt='' width='700' height='433' /></div><div class='input'># }
 
 </div></pre>
   </div>
