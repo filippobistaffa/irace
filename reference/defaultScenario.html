@@ -117,7 +117,7 @@
     <p>Return scenario with default values.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>defaultScenario</span>(<span class='kw'>scenario</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>())</pre>
+    <pre class="usage"><span class='fu'>defaultScenario</span><span class='op'>(</span>scenario <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -136,7 +136,7 @@ settings. The data structure has to be the one returned by the function
 containing the default values for each parameter, except for those
 already present in the scenario passed as argument.
 The scenario list contains the following elements:</p><ul>
-<li><p>General options:</p><dl'>
+<li><p>General options:</p><dl>
      <dt><code>scenarioFile</code></dt><dd><p>Path of the file that describes the configuration scenario setup and other irace settings. (Default: <code>"./scenario.txt"</code>)</p></dd>
      <dt><code>execDir</code></dt><dd><p>Directory where the programs will be run. (Default: <code>"./"</code>)</p></dd>
      <dt><code>logFile</code></dt><dd><p>File to save tuning results as an R dataset, either absolute path or relative to execDir. (Default: <code>"./irace.Rdata"</code>)</p></dd>
@@ -147,13 +147,13 @@ The scenario list contains the following elements:</p><ul>
      <dt><code>aclib</code></dt><dd><p>Enable/disable AClib mode. This option enables compatibility with GenericWrapper4AC as targetRunner script. (Default: <code>0</code>)</p></dd>
    
 </dl></li>
-<li><p>Elitist <code>irace</code>:</p><dl'>
+<li><p>Elitist <code>irace</code>:</p><dl>
      <dt><code>elitist</code></dt><dd><p>Enable/disable elitist irace. (Default: <code>1</code>)</p></dd>
      <dt><code>elitistNewInstances</code></dt><dd><p>Number of instances added to the execution list before previous instances in elitist irace. (Default: <code>1</code>)</p></dd>
      <dt><code>elitistLimit</code></dt><dd><p>In elitist irace, maximum number per race of elimination tests that do not eliminate a configuration. Use 0 for no limit. (Default: <code>2</code>)</p></dd>
    
 </dl></li>
-<li><p>Internal <code>irace</code> options:</p><dl'>
+<li><p>Internal <code>irace</code> options:</p><dl>
      <dt><code>nbIterations</code></dt><dd><p>Number of iterations. (Default: <code>0</code>)</p></dd>
      <dt><code>nbExperimentsPerIteration</code></dt><dd><p>Number of runs of the target algorithm per iteration. (Default: <code>0</code>)</p></dd>
      <dt><code>sampleInstances</code></dt><dd><p>Randomly sample the training instances or use them in the order given. (Default: <code>1</code>)</p></dd>
@@ -164,14 +164,14 @@ The scenario list contains the following elements:</p><ul>
      <dt><code>softRestartThreshold</code></dt><dd><p>Soft restart threshold value for numerical parameters. If <code>NA</code>, <code>NULL</code> or <code>""</code>, it is computed as <code>10^-digits</code>. (Default: <code>""</code>)</p></dd>
    
 </dl></li>
-<li><p>Target algorithm parameters:</p><dl'>
+<li><p>Target algorithm parameters:</p><dl>
      <dt><code>parameterFile</code></dt><dd><p>File that contains the description of the parameters of the target algorithm. (Default: <code>"./parameters.txt"</code>)</p></dd>
      <dt><code>forbiddenExps</code></dt><dd><p>Vector of R logical expressions that cannot evaluate to <code>TRUE</code> for any evaluated configuration. (Default: <code>""</code>)</p></dd>
      <dt><code>forbiddenFile</code></dt><dd><p>File that contains a list of logical expressions that cannot be <code>TRUE</code> for any evaluated configuration. If empty or <code>NULL</code>, do not use forbidden expressions. (Default: <code>""</code>)</p></dd>
      <dt><code>digits</code></dt><dd><p>Maximum number of decimal places that are significant for numerical (real) parameters. (Default: <code>4</code>)</p></dd>
    
 </dl></li>
-<li><p>Target algorithm execution:</p><dl'>
+<li><p>Target algorithm execution:</p><dl>
      <dt><code>targetRunner</code></dt><dd><p>Script called for each configuration that executes the target algorithm to be tuned. See templates. (Default: <code>"./target-runner"</code>)</p></dd>
      <dt><code>targetRunnerRetries</code></dt><dd><p>Number of times to retry a call to <code>targetRunner</code> if the call failed. (Default: <code>0</code>)</p></dd>
      <dt><code>targetRunnerData</code></dt><dd><p>Optional data passed to <code>targetRunner</code>. This is ignored by the default <code>targetRunner</code> function, but it may be used by custom <code>targetRunner</code> functions to pass persistent data around. (Default: <code>""</code>)</p></dd>
@@ -184,32 +184,32 @@ The scenario list contains the following elements:</p><ul>
      <dt><code>batchmode</code></dt><dd><p>Specify how irace waits for jobs to finish when <code>targetRunner</code> submits jobs to a batch cluster: sge, pbs, torque or slurm. <code>targetRunner</code> must submit jobs to the cluster using, for example, <code>qsub</code>. (Default: <code>0</code>)</p></dd>
    
 </dl></li>
-<li><p>Initial configurations:</p><dl'>
+<li><p>Initial configurations:</p><dl>
      <dt><code>initConfigurations</code></dt><dd><p>Data frame describing initial configurations (usually read from a file using <code>readConfigurations</code>). (Default: <code>""</code>)</p></dd>
      <dt><code>configurationsFile</code></dt><dd><p>File that contains a table of initial configurations. If empty or <code>NULL</code>, all initial configurations are randomly generated. (Default: <code>""</code>)</p></dd>
    
 </dl></li>
-<li><p>Training instances:</p><dl'>
+<li><p>Training instances:</p><dl>
      <dt><code>instances</code></dt><dd><p>Character vector of the instances to be used in the <code>targetRunner</code>. (Default: <code>""</code>)</p></dd>
      <dt><code>trainInstancesDir</code></dt><dd><p>Directory where training instances are located; either absolute path or relative to current directory. If no <code>trainInstancesFiles</code> is provided, all the files in <code>trainInstancesDir</code> will be listed as instances. (Default: <code>"./Instances"</code>)</p></dd>
      <dt><code>trainInstancesFile</code></dt><dd><p>File that contains a list of training instances and optionally additional parameters for them. If <code>trainInstancesDir</code> is provided, <code>irace</code> will search for the files in this folder. (Default: <code>""</code>)</p></dd>
    
 </dl></li>
-<li><p>Tuning budget:</p><dl'>
+<li><p>Tuning budget:</p><dl>
      <dt><code>maxExperiments</code></dt><dd><p>Maximum number of runs (invocations of <code>targetRunner</code>) that will be performed. It determines the maximum budget of experiments for the tuning. (Default: <code>0</code>)</p></dd>
      <dt><code>maxTime</code></dt><dd><p>Maximum total execution time in seconds for the executions of <code>targetRunner</code>. <code>targetRunner</code> must return two values: cost and time. (Default: <code>0</code>)</p></dd>
      <dt><code>budgetEstimation</code></dt><dd><p>Fraction (smaller than 1) of the budget used to estimate the mean computation time of a configuration. Only used when <code>maxTime</code> &gt; 0 (Default: <code>0.02</code>)</p></dd>
      <dt><code>minMeasurableTime</code></dt><dd><p>Minimum time unit that is still (significantly) measureable. (Default: <code>0.01</code>)</p></dd>
    
 </dl></li>
-<li><p>Statistical test:</p><dl'>
+<li><p>Statistical test:</p><dl>
      <dt><code>testType</code></dt><dd><p>Statistical test used for elimination. Default test is always <code>F-test</code> unless <code>capping</code> is enabled, in which case the default test is <code>t-test</code>. Valid values are: F-test (Friedman test), t-test (pairwise t-tests with no correction), t-test-bonferroni (t-test with Bonferroni's correction for multiple comparisons), t-test-holm (t-test with Holm's correction for multiple comparisons). (Default: <code>"F-test"</code>)</p></dd>
      <dt><code>firstTest</code></dt><dd><p>Number of instances evaluated before the first elimination test. It must be a multiple of <code>eachTest</code>. (Default: <code>5</code>)</p></dd>
      <dt><code>eachTest</code></dt><dd><p>Number of instances evaluated between elimination tests. (Default: <code>1</code>)</p></dd>
      <dt><code>confidence</code></dt><dd><p>Confidence level for the elimination test. (Default: <code>0.95</code>)</p></dd>
    
 </dl></li>
-<li><p>Adaptive capping:</p><dl'>
+<li><p>Adaptive capping:</p><dl>
      <dt><code>capping</code></dt><dd><p>Enable the use of adaptive capping, a technique designed for minimizing the computation time of configurations. This is only available when <code>elitist</code> is active. (Default: <code>0</code>)</p></dd>
      <dt><code>cappingType</code></dt><dd><p>Measure used to obtain the execution bound from the performance of the elite configurations.<ul>
 <li><p>mean: Mean performance of the elite configurations.</p></li>
@@ -225,11 +225,11 @@ The scenario list contains the following elements:</p><ul>
      <dt><code>boundAsTimeout</code></dt><dd><p>Replace the configuration cost of bounded executions with <code>boundMax</code>. (Default: <code>1</code>)</p></dd>
    
 </dl></li>
-<li><p>Recovery:</p><dl'>
+<li><p>Recovery:</p><dl>
      <dt><code>recoveryFile</code></dt><dd><p>Previously saved log file to recover the execution of <code>irace</code>, either absolute path or relative to the current directory.  If empty or <code>NULL</code>, recovery is not performed. (Default: <code>""</code>)</p></dd>
    
 </dl></li>
-<li><p>Testing:</p><dl'>
+<li><p>Testing:</p><dl>
      <dt><code>testInstancesDir</code></dt><dd><p>Directory where testing instances are located, either absolute or relative to current directory. (Default: <code>""</code>)</p></dd>
      <dt><code>testInstancesFile</code></dt><dd><p>File containing a list of test instances and optionally additional parameters for them. (Default: <code>""</code>)</p></dd>
      <dt><code>testInstances</code></dt><dd><p>Character vector of the instances to be used in the <code>targetRunner</code> when executing the testing. (Default: <code>""</code>)</p></dd>
@@ -242,7 +242,7 @@ The scenario list contains the following elements:</p><ul>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'>
-<dl'>
+<dl>
  <dt><code><a href='readScenario.html'>readScenario</a></code></dt><dd><p>for reading a configuration scenario from a file.</p></dd>
  <dt><code><a href='printScenario.html'>printScenario</a></code></dt><dd><p>prints the given scenario.</p></dd>
  <dt><code>defaultScenario</code></dt><dd><p>returns the default scenario settings of <span class="pkg">irace</span>.</p></dd>
@@ -250,6 +250,9 @@ The scenario list contains the following elements:</p><ul>
 
 </dl>
 </div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Manuel López-Ibáñez and Jérémie Dubois-Lacoste</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

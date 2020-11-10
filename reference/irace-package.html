@@ -148,6 +148,10 @@
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='irace.main.html'>irace.main</a></code> to start <span class="pkg">irace</span> with a given scenario.</p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Maintainers: Manuel López-Ibáñez and Leslie Pérez Cáceres
+        <a href='mailto:irace-package@googlegroups.com'>irace-package@googlegroups.com</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'> <span class='co'>#######################################################################</span>
@@ -163,52 +167,52 @@
  <span class='co'># by different values of lambda.</span>
  <span class='co'>#######################################################################</span>
  <span class='co'>## First we provide an implementation of the functions to be optimized:</span>
- <span class='no'>f_rosenbrock</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span> (<span class='no'>x</span>) {
-   <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x</span>)
-   <span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='no'>x</span> + <span class='fl'>1</span>
-   <span class='no'>hz</span> <span class='kw'>&lt;-</span> <span class='no'>z</span>[<span class='fl'>1</span>:(<span class='no'>d</span> - <span class='fl'>1</span>)]
-   <span class='no'>tz</span> <span class='kw'>&lt;-</span> <span class='no'>z</span>[<span class='fl'>2</span>:<span class='no'>d</span>]
-   <span class='no'>s</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='fl'>100</span> * (<span class='no'>hz</span>^<span class='fl'>2</span> - <span class='no'>tz</span>)^<span class='fl'>2</span> + (<span class='no'>hz</span> - <span class='fl'>1</span>)^<span class='fl'>2</span>)
-   <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='no'>s</span>)
- }
- <span class='no'>f_rastrigin</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span> (<span class='no'>x</span>) {
-   <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>x</span> * <span class='no'>x</span> - <span class='fl'>10</span> * <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>cos</a></span>(<span class='fl'>2</span> * <span class='no'>pi</span> * <span class='no'>x</span>) + <span class='fl'>10</span>)
- }
-
+ <span class='va'>f_rosenbrock</span> <span class='op'>&lt;-</span> <span class='kw'>function</span> <span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+   <span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+   <span class='va'>z</span> <span class='op'>&lt;-</span> <span class='va'>x</span> <span class='op'>+</span> <span class='fl'>1</span>
+   <span class='va'>hz</span> <span class='op'>&lt;-</span> <span class='va'>z</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='op'>(</span><span class='va'>d</span> <span class='op'>-</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>]</span>
+   <span class='va'>tz</span> <span class='op'>&lt;-</span> <span class='va'>z</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>:</span><span class='va'>d</span><span class='op'>]</span>
+   <span class='va'>s</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='fl'>100</span> <span class='op'>*</span> <span class='op'>(</span><span class='va'>hz</span><span class='op'>^</span><span class='fl'>2</span> <span class='op'>-</span> <span class='va'>tz</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span> <span class='op'>+</span> <span class='op'>(</span><span class='va'>hz</span> <span class='op'>-</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
+   <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>s</span><span class='op'>)</span>
+ <span class='op'>}</span>
+ <span class='va'>f_rastrigin</span> <span class='op'>&lt;-</span> <span class='kw'>function</span> <span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+   <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>x</span> <span class='op'>*</span> <span class='va'>x</span> <span class='op'>-</span> <span class='fl'>10</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>cos</a></span><span class='op'>(</span><span class='fl'>2</span> <span class='op'>*</span> <span class='va'>pi</span> <span class='op'>*</span> <span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>10</span><span class='op'>)</span>
+ <span class='op'>}</span>
+ 
  <span class='co'>## We generate 20 instances (in this case, weights):</span>
- <span class='no'>weights</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>20</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fl'>0.9</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fl'>0.02</span>)
-
+ <span class='va'>weights</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>20</span>, mean <span class='op'>=</span> <span class='fl'>0.9</span>, sd <span class='op'>=</span> <span class='fl'>0.02</span><span class='op'>)</span>
+ 
  <span class='co'>## On this set of instances, we are interested in optimizing two</span>
  <span class='co'>## parameters of the SANN algorithm: tmax and temp. We setup the</span>
  <span class='co'>## parameter space as follows:</span>
- <span class='no'>parameters_table</span> <span class='kw'>&lt;-</span> <span class='st'>'
+ <span class='va'>parameters_table</span> <span class='op'>&lt;-</span> <span class='st'>'
  tmax "" i,log (1, 5000)
  temp "" r (0, 100)
  '</span>
-
+ 
  <span class='co'>## We use the irace function readParameters to read this table:</span>
- <span class='no'>parameters</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='readParameters.html'>readParameters</a></span>(<span class='kw'>text</span> <span class='kw'>=</span> <span class='no'>parameters_table</span>)
-
+ <span class='va'>parameters</span> <span class='op'>&lt;-</span> <span class='fu'><a href='readParameters.html'>readParameters</a></span><span class='op'>(</span>text <span class='op'>=</span> <span class='va'>parameters_table</span><span class='op'>)</span>
+ 
  <span class='co'>## Next, we define the function that will evaluate each candidate</span>
  <span class='co'>## configuration on a single instance. For simplicity, we restrict to</span>
  <span class='co'>## three-dimensional functions and we set the maximum number of</span>
  <span class='co'>## iterations of SANN to 1000.</span>
- <span class='no'>target_runner</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>experiment</span>, <span class='no'>scenario</span>)
- {
-   <span class='no'>instance</span> <span class='kw'>&lt;-</span> <span class='no'>experiment</span>$<span class='no'>instance</span>
-   <span class='no'>configuration</span> <span class='kw'>&lt;-</span> <span class='no'>experiment</span>$<span class='no'>configuration</span>
-
-   <span class='no'>D</span> <span class='kw'>&lt;-</span> <span class='fl'>3</span>
-   <span class='no'>par</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>(<span class='no'>D</span>, <span class='kw'>min</span><span class='kw'>=</span>-<span class='fl'>1</span>, <span class='kw'>max</span><span class='kw'>=</span><span class='fl'>1</span>)
-   <span class='no'>fn</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) {
-     <span class='no'>weight</span> <span class='kw'>&lt;-</span> <span class='no'>instance</span>
-     <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='no'>weight</span> * <span class='fu'>f_rastrigin</span>(<span class='no'>x</span>) + (<span class='fl'>1</span> - <span class='no'>weight</span>) * <span class='fu'>f_rosenbrock</span>(<span class='no'>x</span>))
-   }
-   <span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/optim.html'>optim</a></span>(<span class='no'>par</span>,<span class='no'>fn</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"SANN"</span>,
-                <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>maxit</span><span class='kw'>=</span><span class='fl'>1000</span>
-                  , <span class='kw'>tmax</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span>(<span class='no'>configuration</span><span class='kw'>[[</span><span class='st'>"tmax"</span>]])
-                  , <span class='kw'>temp</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span>(<span class='no'>configuration</span><span class='kw'>[[</span><span class='st'>"temp"</span>]])
-                  ))
+ <span class='va'>target_runner</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>experiment</span>, <span class='va'>scenario</span><span class='op'>)</span>
+ <span class='op'>{</span>
+   <span class='va'>instance</span> <span class='op'>&lt;-</span> <span class='va'>experiment</span><span class='op'>$</span><span class='va'>instance</span>
+   <span class='va'>configuration</span> <span class='op'>&lt;-</span> <span class='va'>experiment</span><span class='op'>$</span><span class='va'>configuration</span>
+ 
+   <span class='va'>D</span> <span class='op'>&lt;-</span> <span class='fl'>3</span>
+   <span class='va'>par</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='va'>D</span>, min<span class='op'>=</span><span class='op'>-</span><span class='fl'>1</span>, max<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>
+   <span class='va'>fn</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+     <span class='va'>weight</span> <span class='op'>&lt;-</span> <span class='va'>instance</span>
+     <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>weight</span> <span class='op'>*</span> <span class='fu'>f_rastrigin</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>+</span> <span class='op'>(</span><span class='fl'>1</span> <span class='op'>-</span> <span class='va'>weight</span><span class='op'>)</span> <span class='op'>*</span> <span class='fu'>f_rosenbrock</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
+   <span class='op'>}</span>
+   <span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>stats</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/optim.html'>optim</a></span><span class='op'>(</span><span class='va'>par</span>,<span class='va'>fn</span>, method<span class='op'>=</span><span class='st'>"SANN"</span>,
+                control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>maxit<span class='op'>=</span><span class='fl'>1000</span>
+                  , tmax <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>configuration</span><span class='op'>[[</span><span class='st'>"tmax"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+                  , temp <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>configuration</span><span class='op'>[[</span><span class='st'>"temp"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+                  <span class='op'>)</span><span class='op'>)</span>
    <span class='co'>## New output interface in irace 2.0. This list may also contain:</span>
    <span class='co'>## - 'time' if irace is called with 'maxTime'</span>
    <span class='co'>## - 'error' is a string used to report an error</span>
@@ -216,25 +220,26 @@
    <span class='co'>##   an external program or function.</span>
    <span class='co'>## - 'call' is a string used to report how target_runner called the</span>
    <span class='co'>##   external program or function.</span>
-   <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>cost</span> <span class='kw'>=</span> <span class='no'>res</span>$<span class='no'>value</span>))
- }
-
+   <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>cost <span class='op'>=</span> <span class='va'>res</span><span class='op'>$</span><span class='va'>value</span><span class='op'>)</span><span class='op'>)</span>
+ <span class='op'>}</span>
+ 
  <span class='co'>## We define a configuration scenario by setting targetRunner to the</span>
  <span class='co'>## function define above, instances to the first 10 random weights, and</span>
  <span class='co'>## a maximum budget of 'maxExperiments' calls to targetRunner.</span>
- <span class='no'>scenario</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>targetRunner</span> <span class='kw'>=</span> <span class='no'>target_runner</span>,
-                  <span class='kw'>instances</span> <span class='kw'>=</span> <span class='no'>weights</span>[<span class='fl'>1</span>:<span class='fl'>10</span>],
-                  <span class='kw'>maxExperiments</span> <span class='kw'>=</span> <span class='fl'>500</span>,
+ <span class='va'>scenario</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>targetRunner <span class='op'>=</span> <span class='va'>target_runner</span>,
+                  instances <span class='op'>=</span> <span class='va'>weights</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>]</span>,
+                  maxExperiments <span class='op'>=</span> <span class='fl'>500</span>,
                   <span class='co'># Do not create a logFile</span>
-                  <span class='kw'>logFile</span> <span class='kw'>=</span> <span class='st'>""</span>)
-
+                  logFile <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span>
+ 
  <span class='co'>## We check that the scenario is valid. This will also try to execute</span>
  <span class='co'>## target_runner.</span>
- <span class='fu'><a href='checkIraceScenario.html'>checkIraceScenario</a></span>(<span class='no'>scenario</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>parameters</span>)</div><div class='output co'>#&gt; # 2020-09-03 11:31:38 UTC: Checking scenario
+ <span class='fu'><a href='checkIraceScenario.html'>checkIraceScenario</a></span><span class='op'>(</span><span class='va'>scenario</span>, parameters <span class='op'>=</span> <span class='va'>parameters</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; # 2020-11-10 11:04:41 UTC: Checking scenario
 #&gt; ## irace scenario:
 #&gt; scenarioFile = "./scenario.txt"
-#&gt; parameterFile = "/tmp/RtmpdLTmyb/file63f2257d0c23/reference/parameters.txt"
-#&gt; execDir = "/tmp/RtmpdLTmyb/file63f2257d0c23/reference"
+#&gt; parameterFile = "/tmp/RtmpDY6DAH/file1675a50cbe4/reference/parameters.txt"
+#&gt; execDir = "/tmp/RtmpDY6DAH/file1675a50cbe4/reference"
 #&gt; logFile = NULL
 #&gt; recoveryFile = NULL
 #&gt; instances = c(0.949576931095124, 0.898052975589976, 0.910406494863153, 0.915158114994512, 0.906132162417802, 0.88495724971745, 0.878288225671879, 0.887177970470628, 0.905393862916816, 0.926318907407635)
@@ -293,8 +298,8 @@
 #&gt; aclib = FALSE
 #&gt; ## end of irace scenario
 #&gt; # Parameters provided by user.
-#&gt; # Parameter file '/tmp/RtmpdLTmyb/file63f2257d0c23/reference/parameters.txt' will be ignored
-#&gt; # 2020-09-03 11:31:38 UTC: Checking target execution.
+#&gt; # Parameter file '/tmp/RtmpDY6DAH/file1675a50cbe4/reference/parameters.txt' will be ignored
+#&gt; # 2020-11-10 11:04:41 UTC: Checking target execution.
 #&gt; # Executing targetRunner ( 2 times)...
 #&gt; # targetRunner returned:
 #&gt; [[1]]
@@ -313,12 +318,13 @@
 #&gt; [1] NA
 #&gt; 
 #&gt; 
-#&gt; # 2020-09-03 11:31:38 UTC: Check succesful.</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+#&gt; # 2020-11-10 11:04:41 UTC: Check succesful.</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'> 
  <span class='co'># \donttest{</span>
  <span class='co'>## We are now ready to launch irace. We do it by means of the irace</span>
  <span class='co'>## function. The function will print information about its</span>
  <span class='co'>## progress. This may require a few minutes, so it is not run by default.</span>
- <span class='no'>tuned_confs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='irace.html'>irace</a></span>(<span class='kw'>scenario</span> <span class='kw'>=</span> <span class='no'>scenario</span>, <span class='kw'>parameters</span> <span class='kw'>=</span> <span class='no'>parameters</span>)</div><div class='output co'>#&gt; # 2020-09-03 11:31:38 UTC: Initialization
+ <span class='va'>tuned_confs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='irace.html'>irace</a></span><span class='op'>(</span>scenario <span class='op'>=</span> <span class='va'>scenario</span>, parameters <span class='op'>=</span> <span class='va'>parameters</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; # 2020-11-10 11:04:41 UTC: Initialization
 #&gt; # Elitist race
 #&gt; # Elitist new instances: 1
 #&gt; # Elitist limit: 2
@@ -331,7 +337,7 @@
 #&gt; # mu: 5
 #&gt; # deterministic: FALSE
 #&gt; 
-#&gt; # 2020-09-03 11:31:38 UTC: Iteration 1 of 3
+#&gt; # 2020-11-10 11:04:41 UTC: Iteration 1 of 3
 #&gt; # experimentsUsedSoFar: 0
 #&gt; # remainingBudget: 500
 #&gt; # currentBudget: 166
@@ -360,12 +366,12 @@
 #&gt;    .ID. tmax    temp .PARENT.
 #&gt; 22   22    7 31.1499       NA
 #&gt; 
-#&gt; # 2020-09-03 11:31:39 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2020-11-10 11:04:42 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
 #&gt; 22    7 31.1499
 #&gt; 12   38 47.0209
 #&gt; 1    38 66.5720
-#&gt; # 2020-09-03 11:31:39 UTC: Iteration 2 of 3
+#&gt; # 2020-11-10 11:04:42 UTC: Iteration 2 of 3
 #&gt; # experimentsUsedSoFar: 161
 #&gt; # remainingBudget: 339
 #&gt; # currentBudget: 169
@@ -396,12 +402,12 @@
 #&gt;    .ID. tmax    temp .PARENT.
 #&gt; 22   22    7 31.1499       NA
 #&gt; 
-#&gt; # 2020-09-03 11:31:41 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2020-11-10 11:04:44 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
 #&gt; 22    7 31.1499
 #&gt; 33   11 41.0000
 #&gt; 29    6 22.0022
-#&gt; # 2020-09-03 11:31:41 UTC: Iteration 3 of 3
+#&gt; # 2020-11-10 11:04:44 UTC: Iteration 3 of 3
 #&gt; # experimentsUsedSoFar: 323
 #&gt; # remainingBudget: 177
 #&gt; # currentBudget: 177
@@ -433,12 +439,12 @@
 #&gt;    .ID. tmax    temp .PARENT.
 #&gt; 60   60   12 45.3833       33
 #&gt; 
-#&gt; # 2020-09-03 11:31:42 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2020-11-10 11:04:46 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
 #&gt; 60   12 45.3833
 #&gt; 22    7 31.1499
 #&gt; 33   11 41.0000
-#&gt; # 2020-09-03 11:31:42 UTC: Stopped because there is not enough budget left to race more than the minimum (3)
+#&gt; # 2020-11-10 11:04:46 UTC: Stopped because there is not enough budget left to race more than the minimum (3)
 #&gt; # You may either increase the budget or set 'minNbSurvival' to a lower value
 #&gt; # Iteration: 4
 #&gt; # nbIterations: 4
@@ -447,35 +453,37 @@
 #&gt; # remainingBudget: 4
 #&gt; # currentBudget: 4
 #&gt; # number of elites: 3
-#&gt; # nbConfigurations: 3</div><div class='input'>
+#&gt; # nbConfigurations: 3</div><div class='input'> 
  <span class='co'>## We can print the best configurations found by irace as follows:</span>
- <span class='fu'><a href='configurations.print.html'>configurations.print</a></span>(<span class='no'>tuned_confs</span>)</div><div class='output co'>#&gt;    tmax    temp
+ <span class='fu'><a href='configurations.print.html'>configurations.print</a></span><span class='op'>(</span><span class='va'>tuned_confs</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    tmax    temp
 #&gt; 60   12 45.3833
 #&gt; 22    7 31.1499
-#&gt; 33   11 41.0000</div><div class='input'>
+#&gt; 33   11 41.0000</div><div class='input'> 
  <span class='co'>## We can evaluate the quality of the best configuration found by</span>
  <span class='co'>## irace versus the default configuration of the SANN algorithm on</span>
  <span class='co'>## the other 10 instances previously generated.</span>
  <span class='co'>## To do so, first we apply the default configuration of the SANN</span>
  <span class='co'>## algorithm to these instances:</span>
- <span class='no'>test</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>configuration</span>)
- {
-   <span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>weights</span>[<span class='fl'>11</span>:<span class='fl'>20</span>],
-                 <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'>target_runner</span>(
-                               <span class='kw'>experiment</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>instance</span> <span class='kw'>=</span> <span class='no'>x</span>,
-                                                 <span class='kw'>configuration</span> <span class='kw'>=</span> <span class='no'>configuration</span>),
-                               <span class='kw'>scenario</span> <span class='kw'>=</span> <span class='no'>scenario</span>))
-   <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span> (<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span>(<span class='no'>res</span>, <span class='no'>getElement</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"cost"</span>))
- }
- <span class='no'>default</span> <span class='kw'>&lt;-</span> <span class='fu'>test</span>(<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>tmax</span><span class='kw'>=</span><span class='fl'>10</span>, <span class='kw'>temp</span><span class='kw'>=</span><span class='fl'>10</span>))
+ <span class='va'>test</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>configuration</span><span class='op'>)</span>
+ <span class='op'>{</span>
+   <span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>weights</span><span class='op'>[</span><span class='fl'>11</span><span class='op'>:</span><span class='fl'>20</span><span class='op'>]</span>,
+                 <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'>target_runner</span><span class='op'>(</span>
+                               experiment <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>instance <span class='op'>=</span> <span class='va'>x</span>,
+                                                 configuration <span class='op'>=</span> <span class='va'>configuration</span><span class='op'>)</span>,
+                               scenario <span class='op'>=</span> <span class='va'>scenario</span><span class='op'>)</span><span class='op'>)</span>
+   <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>res</span>, <span class='va'>getElement</span>, name <span class='op'>=</span> <span class='st'>"cost"</span><span class='op'>)</span><span class='op'>)</span>
+ <span class='op'>}</span>
+ <span class='va'>default</span> <span class='op'>&lt;-</span> <span class='fu'>test</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>tmax<span class='op'>=</span><span class='fl'>10</span>, temp<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
  <span class='co'>## We extract and apply the winning configuration found by irace</span>
  <span class='co'>## to these instances:</span>
- <span class='no'>tuned</span> <span class='kw'>&lt;-</span> <span class='fu'>test</span>(<span class='fu'><a href='removeConfigurationsMetaData.html'>removeConfigurationsMetaData</a></span>(<span class='no'>tuned_confs</span>[<span class='fl'>1</span>,]))
-
+ <span class='va'>tuned</span> <span class='op'>&lt;-</span> <span class='fu'>test</span><span class='op'>(</span><span class='fu'><a href='removeConfigurationsMetaData.html'>removeConfigurationsMetaData</a></span><span class='op'>(</span><span class='va'>tuned_confs</span><span class='op'>[</span><span class='fl'>1</span>,<span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+ 
  <span class='co'>## Finally, we can compare using a boxplot the quality obtained with the</span>
  <span class='co'>## default parametrization of SANN and the quality obtained with the</span>
  <span class='co'>## best configuration found by irace.</span>
- <span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>default</span> <span class='kw'>=</span> <span class='no'>default</span>, <span class='kw'>tuned</span> <span class='kw'>=</span> <span class='no'>tuned</span>))</div><div class='img'><img src='irace-package-1.png' alt='' width='700' height='433' /></div><div class='input'># }
+ <span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>default <span class='op'>=</span> <span class='va'>default</span>, tuned <span class='op'>=</span> <span class='va'>tuned</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='img'><img src='irace-package-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
 
 </div></pre>
   </div>

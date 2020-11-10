@@ -154,7 +154,7 @@
 <li><p>Fixed bug when reporting minimum <code>maxTime</code> required. (Reported by Luciana Salete Buriol, fixed by Manuel López-Ibáñez)</p></li>
 <li>
 <p>Fixed bug detected by assert:</p>
-<div class="sourceCode" id="cb2"><pre class="r">all(apply(!is.na(elite.data$experiments), 1, any)) is not TRUE</pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">all</span>(<span class="kw">apply</span>(<span class="op">!</span><span class="kw">is.na</span>(elite.data<span class="op">$</span>experiments), <span class="dv">1</span>, any)) is not <span class="ot">TRUE</span></a></code></pre></div>
 <p>(Reported by Maxim Buzdalov, fixed by Manuel López-Ibáñez)</p>
 </li>
 </ul>
@@ -253,7 +253,9 @@
 <li><p>New examples under <code>inst/examples/batchmode-cluster/</code>. (Manuel López-Ibáñez)</p></li>
 <li>
 <p>It is now possible to include scenario definition files from other scenario files by using:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/eval.html">eval.parent</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/source.html">source</a></span>(<span class="st">"scenario-common.txt"</span>, <span class="kw">chdir</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">local</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu"><a href="https://rdrr.io/r/base/eval.html">eval.parent</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"scenario-common.txt"</span>, chdir <span class="op">=</span> <span class="cn">TRUE</span>, local <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>This feature is VERY experimental and the syntax is likely to change in the future. (Manuel López-Ibáñez)</p>
 </li>
 <li><p>Fix a bug that re-executed elite results under some circumstances. (Leslie Pérez Cáceres)</p></li>
@@ -316,14 +318,16 @@
 </li>
 <li>Many internal and external interfaces have changed. For example, now we consistently use ‘scenario’ to denote the settings passed to irace and ‘configuration’ instead of ‘candidate’ to denote the parameter settings passed to the target algorithm. Other changes are:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="r">   <span class="no">parameters</span>$<span class="no">boundary</span> <span class="kw">-&gt;</span> <span class="no">parameters</span>$<span class="no">domain</span>
-   <span class="no">hookRun</span>             <span class="kw">-&gt;</span> <span class="no">targetRunner</span>
-   <span class="no">hookEvaluate</span>        <span class="kw">-&gt;</span> <span class="no">targetEvaluator</span>
-   <span class="no">tune</span>-<span class="no">conf</span>           <span class="kw">-&gt;</span> <span class="no">scenario.txt</span>
-   <span class="no">instanceDir</span>         <span class="kw">-&gt;</span> <span class="no">trainInstancesDir</span>
-   <span class="no">instanceFile</span>        <span class="kw">-&gt;</span> <span class="no">trainInstancesFile</span>
-   <span class="no">testInstanceDir</span>     <span class="kw">-&gt;</span> <span class="no">testInstancesDir</span>
-   <span class="no">testInstanceFile</span>    <span class="kw">-&gt;</span> <span class="no">testInstancesFile</span></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+   <span class="va">parameters</span><span class="op">$</span><span class="va">boundary</span> <span class="op">-&gt;</span> <span class="va">parameters</span><span class="op">$</span><span class="va">domain</span>
+   <span class="va">hookRun</span>             <span class="op">-&gt;</span> <span class="va">targetRunner</span>
+   <span class="va">hookEvaluate</span>        <span class="op">-&gt;</span> <span class="va">targetEvaluator</span>
+   <span class="va">tune</span><span class="op">-</span><span class="va">conf</span>           <span class="op">-&gt;</span> <span class="va">scenario.txt</span>
+   <span class="va">instanceDir</span>         <span class="op">-&gt;</span> <span class="va">trainInstancesDir</span>
+   <span class="va">instanceFile</span>        <span class="op">-&gt;</span> <span class="va">trainInstancesFile</span>
+   <span class="va">testInstanceDir</span>     <span class="op">-&gt;</span> <span class="va">testInstancesDir</span>
+   <span class="va">testInstanceFile</span>    <span class="op">-&gt;</span> <span class="va">testInstancesFile</span></code></pre></div>
 <ul>
 <li><p>Minimal example of configuring a MATLAB program (thanks to Esteban Diaz Leiva)</p></li>
 <li>Paths to files or directories given in the scenario file are relative to the scenario file (except for <code>--log-file</code>, which is an output file and it is relative to <code>--exec-dir</code>). Paths given in the command-line are relative to the current working directory. Given</li>

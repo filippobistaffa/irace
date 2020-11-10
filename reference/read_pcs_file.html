@@ -117,7 +117,7 @@
     <p>Read parameters in PCS (AClib) format and write them in irace format.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read_pcs_file</span>(<span class='no'>file</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>debugLevel</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='no'>text</span>)</pre>
+    <pre class="usage"><span class='fu'>read_pcs_file</span><span class='op'>(</span><span class='va'>file</span>, digits <span class='op'>=</span> <span class='fl'>4</span>, debugLevel <span class='op'>=</span> <span class='fl'>0</span>, <span class='va'>text</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,10 +155,13 @@ In both cases, the parameters must be given (in <code>text</code> or in the file
 whose name is <code>file</code>) in the expected form.  See the documentation
 for details.  If none of these parameters is given, <span class="pkg">irace</span>
 will stop with an error.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Manuel López-Ibáñez</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'> <span class='co'>## Read the parameters directly from text</span>
- <span class='no'>pcs.table</span> <span class='kw'>&lt;-</span> <span class='st'>'
+ <span class='va'>pcs.table</span> <span class='op'>&lt;-</span> <span class='st'>'
  # name       values               [conditions (using R syntax)]
  algorithm    {as,mmas,eas,ras,acs}[as]
  localsearch  {0, 1, 2, 3}[0]
@@ -178,9 +181,10 @@ will stop with an error.</p>
  nnls | localsearch in {1,2,3}
  dlb | localsearch in {1,2,3}
  '</span>
- <span class='no'>parameters.table</span> <span class='kw'>&lt;-</span> <span class='fu'>read_pcs_file</span>(<span class='kw'>text</span><span class='kw'>=</span><span class='no'>pcs.table</span>)
- <span class='no'>parameters</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='readParameters.html'>readParameters</a></span>(<span class='kw'>text</span><span class='kw'>=</span><span class='no'>parameters.table</span>)
- <span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span>(<span class='no'>parameters</span>)</div><div class='output co'>#&gt; List of 13
+ <span class='va'>parameters.table</span> <span class='op'>&lt;-</span> <span class='fu'>read_pcs_file</span><span class='op'>(</span>text<span class='op'>=</span><span class='va'>pcs.table</span><span class='op'>)</span>
+ <span class='va'>parameters</span> <span class='op'>&lt;-</span> <span class='fu'><a href='readParameters.html'>readParameters</a></span><span class='op'>(</span>text<span class='op'>=</span><span class='va'>parameters.table</span><span class='op'>)</span>
+ <span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>parameters</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; List of 13
 #&gt;  $ names       : chr [1:11] "algorithm" "localsearch" "alpha" "beta" ...
 #&gt;  $ types       : Named chr [1:11] "c" "c" "r" "r" ...
 #&gt;   ..- attr(*, "names")= chr [1:11] "algorithm" "localsearch" "alpha" "beta" ...

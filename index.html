@@ -106,7 +106,8 @@
 <h2 class="hasAnchor">
 <a href="#user-guide" class="anchor"></a>User guide</h2>
 <p>A complete <a href="https://cran.r-project.org/package=irace/vignettes/irace-package.pdf">user guide</a> comes with the package. You can access it online or, after installing the irace package, invoking from R the following command:</p>
-<div class="sourceCode" id="cb1"><pre class="r">        <span class="no">R</span><span class="kw">&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/vignette.html">vignette</a></span>(<span class="st">"irace-package"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R">        <span class="va">R</span><span class="op">&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/vignette.html">vignette</a></span><span class="op">(</span><span class="st">"irace-package"</span><span class="op">)</span></code></pre></div>
 <p>The following is a quick-start guide. The user guide gives more detailed instructions.</p>
 </div>
 </div>
@@ -143,11 +144,12 @@
 <ol>
 <li>Install within R (automatic download):</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="r">        $ R
-        R&gt; install.packages("irace")</pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">        <span class="op">$</span><span class="st"> </span>R</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">        R<span class="op">&gt;</span><span class="st"> </span><span class="kw">install.packages</span>(<span class="st">"irace"</span>)</a></code></pre></div>
 <p>select a mirror close to you, and test the installation with</p>
-<div class="sourceCode" id="cb5"><pre class="r">        <span class="no">R</span><span class="kw">&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">irace</span>)
-        <span class="no">R</span><span class="kw">&gt;</span> <span class="no">CTRL</span>+<span class="no">d</span></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R">        <span class="va">R</span><span class="op">&gt;</span> <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://iridia.ulb.ac.be/irace">irace</a></span><span class="op">)</span>
+        <span class="va">R</span><span class="op">&gt;</span> <span class="va">CTRL</span><span class="op">+</span><span class="va">d</span></code></pre></div>
 <ol>
 <li>Manually <a href="https://cran.r-project.org/package=irace">download the package from CRAN</a> and invoke at the command-line:</li>
 </ol>
@@ -158,10 +160,10 @@
 <a class="sourceLine" id="cb7-2" data-line-number="2">    $ <span class="ex">R</span> CMD INSTALL --library=~/R irace.tar.gz</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">    $ <span class="bu">export</span> <span class="va">R_LIBS=</span>~/R:<span class="va">${R_LIBS}</span></a></code></pre></div>
 <p>Once installed, test that it is working by doing:</p>
-<div class="sourceCode" id="cb8"><pre class="r">    $ R
-    R&gt; library(irace)
-    R&gt; system.file(package="irace")
-    [1] "~/R/irace"</pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">    <span class="op">$</span><span class="st"> </span>R</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    R<span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(irace)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    R<span class="op">&gt;</span><span class="st"> </span><span class="kw">system.file</span>(<span class="dt">package=</span><span class="st">"irace"</span>)</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    [<span class="dv">1</span>] <span class="st">"~/R/irace"</span></a></code></pre></div>
 <p>The last command tells you the installation directory of <code>irace</code>.</p>
 <div id="gnulinux-and-os-x" class="section level2">
 <h2 class="hasAnchor">
@@ -181,8 +183,9 @@
 <p>or if you are in a 32-bits system, executing:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" data-line-number="1">    <span class="ex">C</span>:<span class="dt">\&gt;</span> C:\R\irace\bin\i386\irace.exe --help</a></code></pre></div>
 <p>You can also launch irace by opening the R console and executing:</p>
-<div class="sourceCode" id="cb13"><pre class="r">    <span class="no">R</span><span class="kw">&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">irace</span>)
-    <span class="no">R</span><span class="kw">&gt;</span> <span class="fu"><a href="reference/irace.cmdline.html">irace.cmdline</a></span>(<span class="st">"--help"</span>)</pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R">    <span class="va">R</span><span class="op">&gt;</span> <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://iridia.ulb.ac.be/irace">irace</a></span><span class="op">)</span>
+    <span class="va">R</span><span class="op">&gt;</span> <span class="fu"><a href="reference/irace.cmdline.html">irace.cmdline</a></span><span class="op">(</span><span class="st">"--help"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="usage" class="section level1">
@@ -199,9 +202,9 @@
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" data-line-number="1">        $ <span class="fu">cp</span> <span class="va">$IRACE_HOME</span>/templates/*.tmpl .</a></code></pre></div>
 <div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">where <span class="st">`</span><span class="dt">$IRACE_HOME</span><span class="st">`</span> is the path to the installation directory of</a>
 <a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">`</span><span class="dt">irace</span><span class="st">`</span>. It can be obtained by doing<span class="op">:</span></a></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="r">        $ R
-        &gt; library(irace)
-        &gt; system.file(package="irace")</pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">        <span class="op">$</span><span class="st"> </span>R</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">        <span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(irace)</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">        <span class="op">&gt;</span><span class="st"> </span><span class="kw">system.file</span>(<span class="dt">package=</span><span class="st">"irace"</span>)</a></code></pre></div>
 <ol>
 <li>For each template in your tuning directory, remove the <code>.tmpl</code> suffix, and modify them following the instructions in each file. In particular,
 <ul>

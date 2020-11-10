@@ -117,21 +117,21 @@
     <p>Ablation is a method for analyzing the differences between two configurations.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ablation</span>(
-  <span class='kw'>iraceLogFile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>iraceResults</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>src</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>target</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ab.params</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>n.instances</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"full"</span>,
-  <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>1234567</span>,
-  <span class='kw'>ablationLogFile</span> <span class='kw'>=</span> <span class='st'>"log-ablation.Rdata"</span>,
-  <span class='kw'>pdf.file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>pdf.width</span> <span class='kw'>=</span> <span class='fl'>20</span>,
-  <span class='kw'>mar</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>12</span>, <span class='fl'>5</span>, <span class='fl'>4</span>, <span class='fl'>1</span>),
-  <span class='kw'>debugLevel</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>ablation</span><span class='op'>(</span>
+  iraceLogFile <span class='op'>=</span> <span class='cn'>NULL</span>,
+  iraceResults <span class='op'>=</span> <span class='cn'>NULL</span>,
+  src <span class='op'>=</span> <span class='cn'>NULL</span>,
+  target <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ab.params <span class='op'>=</span> <span class='cn'>NULL</span>,
+  n.instances <span class='op'>=</span> <span class='cn'>NULL</span>,
+  type <span class='op'>=</span> <span class='st'>"full"</span>,
+  seed <span class='op'>=</span> <span class='fl'>1234567</span>,
+  ablationLogFile <span class='op'>=</span> <span class='st'>"log-ablation.Rdata"</span>,
+  pdf.file <span class='op'>=</span> <span class='cn'>NULL</span>,
+  pdf.width <span class='op'>=</span> <span class='fl'>20</span>,
+  mar <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>12</span>, <span class='fl'>5</span>, <span class='fl'>4</span>, <span class='fl'>1</span><span class='op'>)</span>,
+  debugLevel <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -197,7 +197,7 @@ ablation results.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list containing the following elements:</p><dl'>
+    <p>A list containing the following elements:</p><dl>
    <dt>configurations</dt><dd><p>Configurations tested in the ablation.</p></dd>
    <dt>instances</dt><dd><p>A matrix with the instances used in the experiments. First column has the 
     instances IDs from <code>iraceResults$scenario$instances</code>, second column the seed assigned to the instance.</p></dd>
@@ -212,24 +212,28 @@ ablation results.</p></td>
 
     <p>C. Fawcett and H. H. Hoos. Analysing differences between algorithm
 configurations through ablation. Journal of Heuristics, 22(4):431–458, 2016.</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Leslie Pérez Cáceres and Manuel López-Ibáñez</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='no'>irace.logfile</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='kw'>package</span><span class='kw'>=</span><span class='st'>"irace"</span>), <span class='st'>"exdata"</span>, <span class='st'>"sann.rda"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span>(<span class='no'>irace.logfile</span>)
+<span class='va'>irace.logfile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span>package<span class='op'>=</span><span class='st'>"irace"</span><span class='op'>)</span>, <span class='st'>"exdata"</span>, <span class='st'>"sann.rda"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='va'>irace.logfile</span><span class='op'>)</span>
 <span class='co'># Execute ablation between the first and the best configuration found by irace.</span>
-<span class='fu'>ablation</span>(<span class='kw'>iraceResults</span> <span class='kw'>=</span> <span class='no'>iraceResults</span>, <span class='kw'>ablationLogFile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</div><div class='output co'>#&gt; # 2020-09-03 11:31:20 UTC: Starting ablation from 1 to 134 :
+<span class='fu'>ablation</span><span class='op'>(</span>iraceResults <span class='op'>=</span> <span class='va'>iraceResults</span>, ablationLogFile <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; # 2020-11-10 11:04:22 UTC: Starting ablation from 1 to 134 :
 #&gt; # Seed:1234567
 #&gt; # Configurations (row number is ID):
 #&gt;     tmax    temp
 #&gt; 1   2241 62.7879
 #&gt; 134  246 28.8061
-#&gt; # 2020-09-03 11:31:20 UTC: Executing source and target configurations on the given instances...
+#&gt; # 2020-11-10 11:04:22 UTC: Executing source and target configurations on the given instances...
 #&gt; # Generating configurations (row number is ID): tmax temp 
 #&gt;   tmax    temp
 #&gt; 2  246 62.7879
 #&gt; 3 2241 28.8061
-#&gt; # 2020-09-03 11:31:26 UTC: Ablation (full) of 2 configurations on 100 instances.
+#&gt; # 2020-11-10 11:04:28 UTC: Ablation (full) of 2 configurations on 100 instances.
 #&gt; # Markers:
 #&gt;      x No test is performed.
 #&gt;      c Configurations are discarded only due to capping.
@@ -348,7 +352,7 @@ configurations through ablation. Journal of Heuristics, 22(4):431–458, 2016.</
 #&gt; 2    2  246 62.7879        1
 #&gt; 
 #&gt; #   tmax 2241 -&gt; 246 
-#&gt; # 2020-09-03 11:31:31 UTC: Final best configuration:
+#&gt; # 2020-11-10 11:04:34 UTC: Final best configuration:
 #&gt;   tmax    temp
 #&gt; 4  246 28.8061</div><div class='img'><img src='ablation-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $configurations
 #&gt;     .ID. tmax    temp .PARENT.
@@ -612,10 +616,10 @@ configurations through ablation. Journal of Heuristics, 22(4):431–458, 2016.</
 #&gt; [1] 1000
 #&gt; 
 #&gt; $scenario$logFile
-#&gt; [1] "/tmp/RtmpdLTmyb/file63f2257d0c23/reference/sann.rda"
+#&gt; [1] "/tmp/RtmpDY6DAH/file1675a50cbe4/reference/sann.rda"
 #&gt; 
 #&gt; $scenario$execDir
-#&gt; [1] "/tmp/RtmpdLTmyb/file63f2257d0c23/reference"
+#&gt; [1] "/tmp/RtmpDY6DAH/file1675a50cbe4/reference"
 #&gt; 
 #&gt; $scenario$scenarioFile
 #&gt; [1] "./scenario.txt"
@@ -765,15 +769,16 @@ configurations through ablation. Journal of Heuristics, 22(4):431–458, 2016.</
 #&gt; 134    4  246 28.8061       96
 #&gt; </div><div class='input'><span class='co'># Execute ablation between two selected configurations, and selecting only a</span>
 <span class='co'># subset of parameters, directly reading the setup from the irace log file.</span>
-<span class='fu'>ablation</span>(<span class='kw'>iraceLogFile</span> <span class='kw'>=</span> <span class='no'>irace.logfile</span>, <span class='kw'>src</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>target</span> <span class='kw'>=</span> <span class='fl'>10</span>,
-         <span class='kw'>ab.params</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"temp"</span>), <span class='kw'>ablationLogFile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</div><div class='output co'>#&gt; # 2020-09-03 11:31:32 UTC: Starting ablation from 1 to 10 :
+<span class='fu'>ablation</span><span class='op'>(</span>iraceLogFile <span class='op'>=</span> <span class='va'>irace.logfile</span>, src <span class='op'>=</span> <span class='fl'>1</span>, target <span class='op'>=</span> <span class='fl'>10</span>,
+         ab.params <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"temp"</span><span class='op'>)</span>, ablationLogFile <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; # 2020-11-10 11:04:34 UTC: Starting ablation from 1 to 10 :
 #&gt; # Seed:1234567
 #&gt; # Configurations (row number is ID):
 #&gt;    tmax    temp
 #&gt; 1  2241 62.7879
 #&gt; 10  998 58.8078
-#&gt; # 2020-09-03 11:31:32 UTC: Executing source and target configurations on the given instances...
-#&gt; # 2020-09-03 11:31:37 UTC: Final best configuration:
+#&gt; # 2020-11-10 11:04:34 UTC: Executing source and target configurations on the given instances...
+#&gt; # 2020-11-10 11:04:39 UTC: Final best configuration:
 #&gt;   tmax    temp
 #&gt; 2  998 58.8078</div><div class='img'><img src='ablation-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $configurations
 #&gt;    .ID. tmax    temp .PARENT.
@@ -1035,10 +1040,10 @@ configurations through ablation. Journal of Heuristics, 22(4):431–458, 2016.</
 #&gt; [1] 1000
 #&gt; 
 #&gt; $scenario$logFile
-#&gt; [1] "/tmp/RtmpdLTmyb/file63f2257d0c23/reference/sann.rda"
+#&gt; [1] "/tmp/RtmpDY6DAH/file1675a50cbe4/reference/sann.rda"
 #&gt; 
 #&gt; $scenario$execDir
-#&gt; [1] "/tmp/RtmpdLTmyb/file63f2257d0c23/reference"
+#&gt; [1] "/tmp/RtmpDY6DAH/file1675a50cbe4/reference"
 #&gt; 
 #&gt; $scenario$scenarioFile
 #&gt; [1] "./scenario.txt"
@@ -1186,7 +1191,7 @@ configurations through ablation. Journal of Heuristics, 22(4):431–458, 2016.</
 #&gt; $best
 #&gt;    .ID. tmax    temp .PARENT.
 #&gt; 10    2  998 58.8078       NA
-#&gt; </div><div class='input'># }
+#&gt; </div><div class='input'><span class='co'># }</span>
 
 </div></pre>
   </div>

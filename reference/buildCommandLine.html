@@ -125,7 +125,7 @@ be used as a command line to call the program to be tuned, thus generating
 one candidate configuration.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>buildCommandLine</span>(<span class='no'>values</span>, <span class='no'>switches</span>)</pre>
+    <pre class="usage"><span class='fu'>buildCommandLine</span><span class='op'>(</span><span class='va'>values</span>, <span class='va'>switches</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -147,19 +147,24 @@ order that corresponds to the values vector).</p></td>
     <p>A string concatenating each element of <code>switches</code> and
 <code>values</code> for all parameters with a space between each pair of
 parameters (but none between the switches and the corresponding values).</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Manuel López-Ibáñez and Jérémie Dubois-Lacoste</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>switches</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"--switch1 "</span>, <span class='st'>"--switch2 "</span>)
-<span class='no'>values</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"value_1"</span>, <span class='st'>"value_2"</span>)
-<span class='fu'>buildCommandLine</span> (<span class='no'>values</span>, <span class='no'>switches</span>)</div><div class='output co'>#&gt; [1] " --switch1 value_1 --switch2 value_2"</div><div class='input'><span class='co'>## Build a command-line from the results produced by a previous run of irace.</span>
+    <pre class="examples"><div class='input'><span class='va'>switches</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"--switch1 "</span>, <span class='st'>"--switch2 "</span><span class='op'>)</span>
+<span class='va'>values</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"value_1"</span>, <span class='st'>"value_2"</span><span class='op'>)</span>
+<span class='fu'>buildCommandLine</span> <span class='op'>(</span><span class='va'>values</span>, <span class='va'>switches</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] " --switch1 value_1 --switch2 value_2"</div><div class='input'><span class='co'>## Build a command-line from the results produced by a previous run of irace.</span>
 <span class='co'># First, load the data produced by irace.</span>
-<span class='no'>irace.logfile</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='kw'>package</span><span class='kw'>=</span><span class='st'>"irace"</span>),
-                           <span class='st'>"exdata"</span>, <span class='st'>"irace-acotsp.Rdata"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span>(<span class='no'>irace.logfile</span>)
-<span class='no'>allConfigurations</span> <span class='kw'>&lt;-</span> <span class='no'>iraceResults</span>$<span class='no'>allConfigurations</span>
-<span class='no'>parameters</span> <span class='kw'>&lt;-</span> <span class='no'>iraceResults</span>$<span class='no'>parameters</span>
-<span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>(<span class='no'>allConfigurations</span>[<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span>(<span class='no'>parameters</span>$<span class='no'>names</span>)], <span class='fl'>1</span>, <span class='no'>buildCommandLine</span>,
-      <span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span>(<span class='no'>parameters</span>$<span class='no'>switches</span>))</div><div class='output co'>#&gt;                                                                                                             1 
+<span class='va'>irace.logfile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span>package<span class='op'>=</span><span class='st'>"irace"</span><span class='op'>)</span>,
+                           <span class='st'>"exdata"</span>, <span class='st'>"irace-acotsp.Rdata"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/load.html'>load</a></span><span class='op'>(</span><span class='va'>irace.logfile</span><span class='op'>)</span>
+<span class='va'>allConfigurations</span> <span class='op'>&lt;-</span> <span class='va'>iraceResults</span><span class='op'>$</span><span class='va'>allConfigurations</span>
+<span class='va'>parameters</span> <span class='op'>&lt;-</span> <span class='va'>iraceResults</span><span class='op'>$</span><span class='va'>parameters</span>
+<span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='va'>allConfigurations</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span><span class='op'>(</span><span class='va'>parameters</span><span class='op'>$</span><span class='va'>names</span><span class='op'>)</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='va'>buildCommandLine</span>,
+      <span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span><span class='op'>(</span><span class='va'>parameters</span><span class='op'>$</span><span class='va'>switches</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                                                                                                             1 
 #&gt;                                  " --as --localsearch 0 --alpha 1.0000 --beta 1.0000 --rho  0.9500 --ants 10" 
 #&gt;                                                                                                             2 
 #&gt; " --ras --localsearch 1 --alpha 3.6296 --beta 7.6770 --rho  0.5583 --ants  5 --nnls 22 --dlb 1 --rasranks 19" 
