@@ -154,7 +154,7 @@ The scenario list contains the following elements:</p><ul>
    
 </dl></li>
 <li><p>Internal <code>irace</code> options:</p><dl>
-     <dt><code>nbIterations</code></dt><dd><p>Number of iterations. (Default: <code>0</code>)</p></dd>
+     <dt><code>nbIterations</code></dt><dd><p>Maximum number of iterations. (Default: <code>0</code>)</p></dd>
      <dt><code>nbExperimentsPerIteration</code></dt><dd><p>Number of runs of the target algorithm per iteration. (Default: <code>0</code>)</p></dd>
      <dt><code>sampleInstances</code></dt><dd><p>Randomly sample the training instances or use them in the order given. (Default: <code>1</code>)</p></dd>
      <dt><code>minNbSurvival</code></dt><dd><p>Minimum number of configurations needed to continue the execution of each race (iteration). (Default: <code>0</code>)</p></dd>
@@ -203,7 +203,7 @@ The scenario list contains the following elements:</p><ul>
    
 </dl></li>
 <li><p>Statistical test:</p><dl>
-     <dt><code>testType</code></dt><dd><p>Statistical test used for elimination. Default test is always <code>F-test</code> unless <code>capping</code> is enabled, in which case the default test is <code>t-test</code>. Valid values are: F-test (Friedman test), t-test (pairwise t-tests with no correction), t-test-bonferroni (t-test with Bonferroni's correction for multiple comparisons), t-test-holm (t-test with Holm's correction for multiple comparisons). (Default: <code>"F-test"</code>)</p></dd>
+     <dt><code>testType</code></dt><dd><p>Statistical test used for elimination. The default value selects <code>t-test</code> if <code>capping</code> is enabled or <code>F-test</code>, otherwise. Valid values are: F-test (Friedman test), t-test (pairwise t-tests with no correction), t-test-bonferroni (t-test with Bonferroni's correction for multiple comparisons), t-test-holm (t-test with Holm's correction for multiple comparisons). (Default: <code>""</code>)</p></dd>
      <dt><code>firstTest</code></dt><dd><p>Number of instances evaluated before the first elimination test. It must be a multiple of <code>eachTest</code>. (Default: <code>5</code>)</p></dd>
      <dt><code>eachTest</code></dt><dd><p>Number of instances evaluated between elimination tests. (Default: <code>1</code>)</p></dd>
      <dt><code>confidence</code></dt><dd><p>Confidence level for the elimination test. (Default: <code>0.95</code>)</p></dd>
