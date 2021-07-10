@@ -235,11 +235,11 @@
  <span class='co'>## We check that the scenario is valid. This will also try to execute</span>
  <span class='co'>## target_runner.</span>
  <span class='fu'><a href='checkIraceScenario.html'>checkIraceScenario</a></span><span class='op'>(</span><span class='va'>scenario</span>, parameters <span class='op'>=</span> <span class='va'>parameters</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; # 2021-07-10 16:40:46 UTC: Checking scenario
+</div><div class='output co'>#&gt; # 2021-07-10 17:33:45 UTC: Checking scenario
 #&gt; ## irace scenario:
 #&gt; scenarioFile = "./scenario.txt"
-#&gt; parameterFile = "/tmp/Rtmp79jKf1/file5d1529f6b6d0/reference/parameters.txt"
-#&gt; execDir = "/tmp/Rtmp79jKf1/file5d1529f6b6d0/reference"
+#&gt; parameterFile = "/tmp/RtmpODE6G9/file5af847c447cb/reference/parameters.txt"
+#&gt; execDir = "/tmp/RtmpODE6G9/file5af847c447cb/reference"
 #&gt; logFile = ""
 #&gt; recoveryFile = ""
 #&gt; instances = c(0.949576931095124, 0.898052975589976, 0.910406494863153, 0.915158114994512, 0.906132162417802, 0.88495724971745, 0.878288225671879, 0.887177970470628, 0.905393862916816, 0.926318907407635)
@@ -298,8 +298,8 @@
 #&gt; aclib = FALSE
 #&gt; ## end of irace scenario
 #&gt; # Parameters provided by user.
-#&gt; # Parameter file '/tmp/Rtmp79jKf1/file5d1529f6b6d0/reference/parameters.txt' will be ignored
-#&gt; # 2021-07-10 16:40:46 UTC: Checking target execution.
+#&gt; # Parameter file '/tmp/RtmpODE6G9/file5af847c447cb/reference/parameters.txt' will be ignored
+#&gt; # 2021-07-10 17:33:45 UTC: Checking target execution.
 #&gt; # Executing targetRunner ( 2 times)...
 #&gt; # targetRunner returned:
 #&gt; [[1]]
@@ -318,13 +318,13 @@
 #&gt; [1] NA
 #&gt; 
 #&gt; 
-#&gt; # 2021-07-10 16:40:46 UTC: Check succesful.</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'> 
+#&gt; # 2021-07-10 17:33:45 UTC: Check succesful.</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'> 
  <span class='co'># \donttest{</span>
  <span class='co'>## We are now ready to launch irace. We do it by means of the irace</span>
  <span class='co'>## function. The function will print information about its</span>
  <span class='co'>## progress. This may require a few minutes, so it is not run by default.</span>
  <span class='va'>tuned_confs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='irace.html'>irace</a></span><span class='op'>(</span>scenario <span class='op'>=</span> <span class='va'>scenario</span>, parameters <span class='op'>=</span> <span class='va'>parameters</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; # 2021-07-10 16:40:46 UTC: Initialization
+</div><div class='output co'>#&gt; # 2021-07-10 17:33:45 UTC: Initialization
 #&gt; # Elitist race
 #&gt; # Elitist new instances: 1
 #&gt; # Elitist limit: 2
@@ -337,7 +337,7 @@
 #&gt; # mu: 5
 #&gt; # deterministic: FALSE
 #&gt; 
-#&gt; # 2021-07-10 16:40:46 UTC: Iteration 1 of 3
+#&gt; # 2021-07-10 17:33:45 UTC: Iteration 1 of 3
 #&gt; # experimentsUsedSoFar: 0
 #&gt; # remainingBudget: 500
 #&gt; # currentBudget: 166
@@ -380,12 +380,12 @@
 #&gt; 21   21  224 38.4918       NA    TRUE     56
 #&gt; 13   13  128 70.3846       NA    TRUE     58
 #&gt; 25   25  255 27.5588       NA    TRUE     61
-#&gt; # 2021-07-10 16:40:48 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2021-07-10 17:33:47 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
 #&gt; 22    7 31.1499
 #&gt; 12   38 47.0209
 #&gt; 1    38 66.5720
-#&gt; # 2021-07-10 16:40:48 UTC: Iteration 2 of 3
+#&gt; # 2021-07-10 17:33:47 UTC: Iteration 2 of 3
 #&gt; # experimentsUsedSoFar: 161
 #&gt; # remainingBudget: 339
 #&gt; # currentBudget: 169
@@ -432,12 +432,12 @@
 #&gt; 35   35   30 40.4599       12    TRUE     82
 #&gt; 47   47   14 38.0137       22    TRUE     84
 #&gt; 41   41   11 13.8538       22    TRUE     87
-#&gt; # 2021-07-10 16:40:50 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2021-07-10 17:33:49 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
 #&gt; 22    7 31.1499
 #&gt; 33   11 41.0000
 #&gt; 29    6 22.0022
-#&gt; # 2021-07-10 16:40:50 UTC: Iteration 3 of 3
+#&gt; # 2021-07-10 17:33:49 UTC: Iteration 3 of 3
 #&gt; # experimentsUsedSoFar: 323
 #&gt; # remainingBudget: 177
 #&gt; # currentBudget: 177
@@ -490,12 +490,12 @@
 #&gt; 58   58    9 40.1134       33    TRUE    128
 #&gt; 57   57    6 32.9277       22    TRUE    141
 #&gt; 62   62    8 43.1383       33    TRUE    141
-#&gt; # 2021-07-10 16:40:52 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
+#&gt; # 2021-07-10 17:33:51 UTC: Elite configurations (first number is the configuration ID; listed from best to worst according to the sum of ranks):
 #&gt;    tmax    temp
 #&gt; 60   12 45.3833
 #&gt; 22    7 31.1499
 #&gt; 33   11 41.0000
-#&gt; # 2021-07-10 16:40:52 UTC: Stopped because there is not enough budget left to race more than the minimum (3)
+#&gt; # 2021-07-10 17:33:51 UTC: Stopped because there is not enough budget left to race more than the minimum (3)
 #&gt; # You may either increase the budget or set 'minNbSurvival' to a lower value
 #&gt; # Iteration: 4
 #&gt; # nbIterations: 4
