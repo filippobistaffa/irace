@@ -248,6 +248,14 @@
 </ul>
 <p>The <strong>irace</strong> package uses code under the GPL from the <a href="https://CRAN.R-project.org/package=race">race package</a> is Copyright (C) 2003 Mauro Birattari.</p>
 </div>
+<div id="building-an-irace-standalone-container" class="section level1">
+<h1 class="hasAnchor">
+<a href="#building-an-irace-standalone-container" class="anchor"></a>Building an irace standalone container</h1>
+<p>Thanks to <a href="https://sylabs.io/singularity/">Singularity</a>, you can build a standalone container of <code>irace</code> using the file <code>irace.sindef</code> which is available in the directory <code>inst/</code> in the source tarball and github repository or, after installing the irace R package, in the installation directory given by the R expression <code><a href="https://rdrr.io/r/base/system.file.html">system.file(package="irace")</a></code>. After installing SingularityCE, the container may be build using:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>sudo singularity build irace.sindef irace.sif</span></code></pre></div>
+<p>and run with:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>singularity run irace.sif <span class="op">&lt;</span>arguments<span class="op">&gt;</span></span></code></pre></div>
+</div>
 <div id="frequently-asked-questions" class="section level1">
 <h1 class="hasAnchor">
 <a href="#frequently-asked-questions" class="anchor"></a>Frequently Asked Questions</h1>
